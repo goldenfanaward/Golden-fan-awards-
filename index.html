@@ -94,25 +94,36 @@ a.card-link{
   position:absolute;
   bottom:0;
   width:100%;
-  padding:22px 18px 26px;
-  background:linear-gradient(to top, rgba(18,11,31,.95), transparent);
+  padding:32px 18px 36px;
+  background:linear-gradient(
+    to top,
+    rgba(18,11,31,.98) 0%,
+    rgba(18,11,31,.8) 45%,
+    transparent 100%
+  );
   text-align:center;
 }
 
 .overlay h2{
   font-family:'Cinzel',serif;
-  font-size:16px;
-  color:#e6d8a8;
-  letter-spacing:1px;
+  font-size:15px;
+  color:#f3e7b8;
+  letter-spacing:1.2px;
   text-transform:uppercase;
-  line-height:1.2;
+  line-height:1.35;
+  max-width:92%;
+  margin:0 auto;
   direction:ltr;
   unicode-bidi:embed;
+  text-shadow:
+    0 2px 6px rgba(0,0,0,.9),
+    0 0 14px rgba(230,216,168,.45);
 }
 
 @media (max-width:600px){
   .overlay h2{
     font-size:13px;
+    line-height:1.4;
   }
 }
 
@@ -197,13 +208,13 @@ footer{
   </div>
 </a>
 
-  <a href="fan.html" class="card-link">
+<a href="editor.html" class="card-link">
   <div class="card">
     <img src="Image/editor.jpeg">
     <div class="overlay"><h2>EDITOR OF THE YEAR</h2></div>
   </div>
 </a>
-  
+
 </div>
 
 <footer>
