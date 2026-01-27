@@ -5,116 +5,110 @@
 <title>Golden Fan Awards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  background: radial-gradient(circle at top, #3a235a, #14091f);
-  font-family: 'Playfair Display', serif;
-  color: #f5e6b8;
+body{
+  background:radial-gradient(circle at top,#3b2460,#120818);
+  font-family:'Playfair Display',serif;
+  color:#f6e6b8;
 }
 
-/* ===== HEADER ===== */
-header {
-  text-align: center;
-  padding: 60px 20px 40px;
+/* HEADER */
+header{
+  text-align:center;
+  padding:60px 20px 40px;
 }
 
-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 44px;
-  letter-spacing: 4px;
-  color: #e8c87e;
+header h1{
+  font-family:'Cinzel',serif;
+  font-size:46px;
+  letter-spacing:5px;
+  color:#e9c97a;
 }
 
-.award-subtitle {
-  margin-top: 25px;
-  line-height: 1.8;
+.subtitle{
+  margin-top:25px;
+  line-height:1.9;
 }
 
-.award-subtitle .en-title {
-  font-size: 20px;
-  color: #f1d98c;
-  letter-spacing: 2px;
+.subtitle .en{
+  font-size:20px;
+  color:#f3d487;
 }
 
-.award-subtitle .en-desc {
-  font-size: 15px;
-  opacity: 0.9;
+.subtitle .desc{
+  font-size:15px;
+  opacity:.9;
 }
 
-.award-subtitle .en-vote {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #ffd86b;
+.subtitle .vote{
+  margin-top:10px;
+  font-size:18px;
+  color:#ffd86b;
 }
 
-.award-subtitle .ar-vote {
-  font-size: 18px;
-  margin-top: 5px;
+/* GRID */
+.categories{
+  max-width:1200px;
+  margin:50px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
 }
 
-/* ===== GRID ===== */
-.categories {
-  max-width: 1100px;
-  margin: 50px auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  padding: 0 20px;
+.category{
+  background:linear-gradient(145deg,#2b1740,#180b28);
+  border-radius:24px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(255,215,120,.18);
+  transition:.3s;
 }
 
-.category {
-  background: linear-gradient(145deg, #2a173e, #1a0f2b);
-  border-radius: 22px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255, 215, 120, 0.15);
-  transition: transform 0.3s ease;
+.category:hover{
+  transform:translateY(-6px);
 }
 
-.category:hover {
-  transform: translateY(-6px);
+.category img{
+  width:100%;
+  border-radius:20px;
+  margin-bottom:18px;
+  background:#1a1027;
 }
 
-.category img {
-  width: 100%;
-  border-radius: 18px;
-  margin-bottom: 18px;
+.category h2{
+  font-family:'Cinzel',serif;
+  font-size:20px;
+  color:#f4d488;
+  letter-spacing:1px;
 }
 
-.category h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 20px;
-  color: #f3d487;
-  letter-spacing: 1px;
+.category p{
+  margin-top:8px;
+  font-size:16px;
+  opacity:.9;
 }
 
-.category p {
-  margin-top: 8px;
-  font-size: 16px;
-  opacity: 0.9;
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  font-size:14px;
+  opacity:.65;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 700px) {
-  .categories {
-    grid-template-columns: 1fr;
+/* RESPONSIVE */
+@media(max-width:768px){
+  .categories{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -124,12 +118,10 @@ footer {
 
 <header>
   <h1>GOLDEN FAN AWARDS</h1>
-
-  <div class="award-subtitle">
-    <div class="en-title">The Golden Fan Awards</div>
-    <div class="en-desc">An Official Celebration of True Fans</div>
-    <div class="en-vote">Vote for Your Favorite Fan</div>
-    <div class="ar-vote">صوّت للمعجب المفضل</div>
+  <div class="subtitle">
+    <div class="en">The Golden Fan Awards</div>
+    <div class="desc">An Official Celebration of True Fans</div>
+    <div class="vote">Vote for Your Favorite Fan<br>صوّت للمعجب المفضل</div>
   </div>
 </header>
 
@@ -137,50 +129,72 @@ footer {
 
   <!-- NOOR -->
   <div class="category">
-    <img src="image/0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg" alt="Noor">
+    <img src="image/0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
     <h2>NOOR STARS FAVORITE FAN</h2>
     <p>المعجب المفضل لنور ستارز</p>
   </div>
 
   <!-- AYATEE -->
   <div class="category">
-    <img src="image/53281958-1F83-4CCD-A998-0E277578F599.jpeg" alt="Ayatee">
+    <img src="image/53281958-1F83-4CCD-A998-0E277578F599.jpeg">
     <h2>AYATEE FAVORITE FAN</h2>
     <p>المعجب المفضل لأيأتي</p>
   </div>
 
   <!-- NARIN -->
   <div class="category">
-    <img src="image/A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg" alt="Narin">
+    <img src="image/A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
     <h2>NARIN FAVORITE FAN</h2>
     <p>المعجب المفضل لنارين</p>
   </div>
 
   <!-- GAITH -->
   <div class="category">
-    <img src="image/B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg" alt="Gaith">
+    <img src="image/B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
     <h2>GAITH FAVORITE FAN</h2>
     <p>المعجب المفضل لغيث</p>
   </div>
 
   <!-- TALIN -->
   <div class="category">
-    <img src="image/D408208E-E52A-4883-AA9F-58F608395A69.jpeg" alt="Talin">
+    <img src="image/D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
     <h2>TALIN FAVORITE FAN</h2>
     <p>المعجب المفضل لتالين</p>
   </div>
 
   <!-- BANEN -->
   <div class="category">
-    <img src="image/F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg" alt="Banen">
+    <img src="image/F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
     <h2>BANEN FAVORITE FAN</h2>
     <p>المعجب المفضل لبنين</p>
   </div>
 
-  <!-- LANA & LYNN -->
+  <!-- LANA & LEEN -->
   <div class="category">
-    <h2>LANA & LYNN FAVORITE FAN</h2>
+    <img src="image/placeholder.jpeg">
+    <h2>LANA & LEEN FAVORITE FAN</h2>
     <p>المعجب المفضل للانا ولين</p>
+  </div>
+
+  <!-- BESSAN -->
+  <div class="category">
+    <img src="image/placeholder.jpeg">
+    <h2>BESSAN FAVORITE FAN</h2>
+    <p>المعجب المفضل لبيسان</p>
+  </div>
+
+  <!-- EDITOR OF THE YEAR -->
+  <div class="category">
+    <img src="image/placeholder.jpeg">
+    <h2>EDITOR OF THE YEAR</h2>
+    <p>إيديتور السنة</p>
+  </div>
+
+  <!-- FAN OF THE YEAR -->
+  <div class="category">
+    <img src="image/placeholder.jpeg">
+    <h2>FAN OF THE YEAR</h2>
+    <p>معجب السنة</p>
   </div>
 
 </section>
