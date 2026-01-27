@@ -1,95 +1,121 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Golden Fan Awards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:radial-gradient(circle at top,#2b1f47,#0e0b14);
-  color:#f5f3ff;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-header{
-  padding:70px 20px 50px;
-  text-align:center;
+body {
+  background: radial-gradient(circle at top, #3a235a, #14091f);
+  font-family: 'Playfair Display', serif;
+  color: #f5e6b8;
 }
 
-header h1{
-  font-family:'Cinzel',serif;
-  font-size:46px;
-  letter-spacing:3px;
-  color:#e6d8a8;
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
 }
 
-header .en{
-  margin-top:10px;
-  font-size:18px;
-  color:#d6c79a;
+header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 44px;
+  letter-spacing: 4px;
+  color: #e8c87e;
 }
 
-header .ar{
-  margin-top:6px;
-  font-size:16px;
-  opacity:.9;
+.award-subtitle {
+  margin-top: 25px;
+  line-height: 1.8;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:30px;
+.award-subtitle .en-title {
+  font-size: 20px;
+  color: #f1d98c;
+  letter-spacing: 2px;
 }
 
-.card{
-  position:relative;
-  height:320px;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,.45);
-  transition:.4s;
-  cursor:pointer;
+.award-subtitle .en-desc {
+  font-size: 15px;
+  opacity: 0.9;
 }
 
-.card:hover{
-  transform:translateY(-8px);
+.award-subtitle .en-vote {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ffd86b;
 }
 
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.award-subtitle .ar-vote {
+  font-size: 18px;
+  margin-top: 5px;
 }
 
-.overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(14,11,20,.95),rgba(14,11,20,.25));
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:24px;
+/* ===== GRID ===== */
+.categories {
+  max-width: 1100px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 0 20px;
 }
 
-.overlay h2{
-  font-family:'Cinzel',serif;
-  font-size:19px;
-  color:#f1e6c8;
-  line-height:1.6;
+.category {
+  background: linear-gradient(145deg, #2a173e, #1a0f2b);
+  border-radius: 22px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(255, 215, 120, 0.15);
+  transition: transform 0.3s ease;
 }
 
-footer{
-  text-align:center;
-  padding:30px 10px;
-  opacity:.6;
-  font-size:14px;
+.category:hover {
+  transform: translateY(-6px);
+}
+
+.category img {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+.category h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  color: #f3d487;
+  letter-spacing: 1px;
+}
+
+.category p {
+  margin-top: 8px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -97,95 +123,67 @@ footer{
 <body>
 
 <header>
-  <h1>Golden Fan Awards</h1>
-  <div class="en">Golden Fans Competition</div>
-  <div class="ar">صوّت للمعجب المفضل</div>
+  <h1>GOLDEN FAN AWARDS</h1>
+
+  <div class="award-subtitle">
+    <div class="en-title">The Golden Fan Awards</div>
+    <div class="en-desc">An Official Celebration of True Fans</div>
+    <div class="en-vote">Vote for Your Favorite Fan</div>
+    <div class="ar-vote">صوّت للمعجب المفضل</div>
+  </div>
 </header>
 
-<div class="container">
+<section class="categories">
 
-  <!-- Noor Stars -->
-  <div class="card">
-    <img src="Image/<img src="./Image/0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
-">
-    <div class="overlay">
-      <h2>Noor Stars Favorite Fan<br>المعجب المفضل لنور ستارز</h2>
-    </div>
+  <!-- NOOR -->
+  <div class="category">
+    <img src="image/0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg" alt="Noor">
+    <h2>NOOR STARS FAVORITE FAN</h2>
+    <p>المعجب المفضل لنور ستارز</p>
   </div>
 
-  <!-- Ayatee -->
-  <div class="card">
-    <img src="Image/53281958-1F83-4CCD-A998-0E277578F599.jpeg">
-    <div class="overlay">
-      <h2>Ayatee Favorite Fan<br>المعجب المفضل لآياتي</h2>
-    </div>
+  <!-- AYATEE -->
+  <div class="category">
+    <img src="image/53281958-1F83-4CCD-A998-0E277578F599.jpeg" alt="Ayatee">
+    <h2>AYATEE FAVORITE FAN</h2>
+    <p>المعجب المفضل لأيأتي</p>
   </div>
 
-  <!-- Narin -->
-  <div class="card">
-    <img src="Image/A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
-    <div class="overlay">
-      <h2>Narin Favorite Fan<br>المعجب المفضل لنارين</h2>
-    </div>
+  <!-- NARIN -->
+  <div class="category">
+    <img src="image/A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg" alt="Narin">
+    <h2>NARIN FAVORITE FAN</h2>
+    <p>المعجب المفضل لنارين</p>
   </div>
 
-  <!-- ghaith -->
-  <div class="card">
-    <img src="Image/B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
-    <div class="overlay">
-      <h2>ghaith Favorite Fan<br>المعجب المفضل لغيث</h2>
-    </div>
+  <!-- GAITH -->
+  <div class="category">
+    <img src="image/B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg" alt="Gaith">
+    <h2>GAITH FAVORITE FAN</h2>
+    <p>المعجب المفضل لغيث</p>
   </div>
 
-  <!-- Talin -->
-  <div class="card">
-    <img src="Image/D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
-    <div class="overlay">
-      <h2>Talin Favorite Fan<br>المعجب المفضل لتالين</h2>
-    </div>
+  <!-- TALIN -->
+  <div class="category">
+    <img src="image/D408208E-E52A-4883-AA9F-58F608395A69.jpeg" alt="Talin">
+    <h2>TALIN FAVORITE FAN</h2>
+    <p>المعجب المفضل لتالين</p>
   </div>
 
-  <!-- Baneen -->
-  <div class="card">
-    <img src="Image/F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
-    <div class="overlay">
-      <h2>Baneen Favorite Fan<br>المعجب المفضل لبنين</h2>
-    </div>
+  <!-- BANEN -->
+  <div class="category">
+    <img src="image/F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg" alt="Banen">
+    <h2>BANEN FAVORITE FAN</h2>
+    <p>المعجب المفضل لبنين</p>
   </div>
 
-  <!-- Lana & Leen -->
-  <div class="card">
-    <img src="Image/">
-    <div class="overlay">
-      <h2>Lana & Leen Favorite Fan<br>المعجب المفضل للانا ولين</h2>
-    </div>
+  <!-- LANA & LYNN -->
+  <div class="category">
+    <h2>LANA & LYNN FAVORITE FAN</h2>
+    <p>المعجب المفضل للانا ولين</p>
   </div>
 
-  <!-- Bessan -->
-  <div class="card">
-    <img src="Image/">
-    <div class="overlay">
-      <h2>Bessan Favorite Fan<br>المعجب المفضل لبيسان</h2>
-    </div>
-  </div>
-
-  <!-- Editor of the Year -->
-  <div class="card">
-    <img src="Image/">
-    <div class="overlay">
-      <h2>Editor of the Year<br>مصمم السنة</h2>
-    </div>
-  </div>
-
-  <!-- Fan of the Year -->
-  <div class="card">
-    <img src="Image/">
-    <div class="overlay">
-      <h2>Fan of the Year<br>معجب السنة</h2>
-    </div>
-  </div>
-
-</div>
+</section>
 
 <footer>
   © 2026 Golden Fan Awards
