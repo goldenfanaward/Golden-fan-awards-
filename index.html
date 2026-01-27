@@ -1,94 +1,119 @@
-<!DOCTYPE html>
-<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <title>Golden Fan Awards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(160deg, #1b132b, #2a1f3d);
-  color: #f4f1fb;
-  text-align: center;
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#3a1b4a,#0c0712);
+  color:#fff;
 }
 
-header {
-  padding: 50px 20px 30px;
+header{
+  text-align:center;
+  padding:40px 15px;
 }
 
-h1 {
-  font-family: 'Cinzel', serif;
-  color: #f5e6b8;
-  font-size: 42px;
-  letter-spacing: 3px;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+header h1{
+  font-family:'Cinzel',serif;
+  letter-spacing:3px;
+  color:#f1e6c8;
 }
 
-.subtitle {
-  margin-top: 10px;
-  opacity: 0.9;
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+/* ==== categories grid ==== */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
 
-.category {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(201,182,255,0.4);
-  border-radius: 24px;
-  padding: 18px;
+@media(max-width:768px){
+  .categories{
+    grid-template-columns:1fr;
+  }
 }
 
-.category img {
-  width: 100%;
-  border-radius: 18px;
-  margin-bottom: 16px;
+.category{
+  background:rgba(255,255,255,0.04);
+  border-radius:20px;
+  padding:15px;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.category-title {
-  font-family: 'Cinzel', serif;
-  font-size: 22px;
-  letter-spacing: 1.5px;
-  color: #f5e6b8;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+.category:hover{
+  transform:scale(1.02);
 }
 
-.category-title-ar {
-  font-family: 'Cinzel', serif;
-  font-size: 18px;
-  color: #e8d8a8;
-  margin: 6px 0 14px;
+.category img{
+  width:100%;
+  border-radius:15px;
 }
 
-button {
-  background: linear-gradient(135deg, #f5e6b8, #d6bf7a);
-  color: #1b132b;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
+.category-title{
+  text-align:center;
+  margin-top:15px;
 }
 
-button:hover {
-  opacity: 0.85;
+.category-title h2{
+  font-family:'Cinzel',serif;
+  color:#f1e6c8;
+  font-size:20px;
+  margin:0;
 }
 
-footer {
-  margin: 40px 0 20px;
-  opacity: 0.6;
-  font-size: 14px;
+.category-title .ar{
+  display:block;
+  margin-top:6px;
+  font-size:15px;
+  opacity:.85;
+}
+
+/* ==== nominees ==== */
+.nominees{
+  display:none;
+  margin-top:20px;
+}
+
+.nominees-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.nominee{
+  background:rgba(0,0,0,.35);
+  border-radius:15px;
+  padding:10px;
+  text-align:center;
+}
+
+.nominee img{
+  width:100%;
+  border-radius:12px;
+}
+
+.nominee p{
+  margin:10px 0 8px;
+}
+
+.vote-btn{
+  background:linear-gradient(135deg,#e8d9a8,#c7a44a);
+  border:none;
+  border-radius:25px;
+  padding:8px 22px;
+  font-weight:600;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -97,83 +122,71 @@ footer {
 
 <header>
   <h1>GOLDEN FAN AWARDS</h1>
-  <p class="subtitle">💜 صوت لمعجبك المفضل</p>
 </header>
 
 <div class="container">
 
-  <!-- نور -->
-  <div class="category">
-    <img src="0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
-    <div class="category-title">Noor Stars Favorite Fan</div>
-    <div class="category-title-ar">المعجب المفضل لنور ستارز</div>
-    <button>Vote / تصويت</button>
+<div class="categories">
+
+<!-- ===== Category 1 ===== -->
+<div class="category" onclick="toggleNominees('noor')">
+  <img src="image/noor.jpg">
+  <div class="category-title">
+    <h2>Noor Stars Favorite Fan
+      <span class="ar">المعجب المفضل لنور ستارز</span>
+    </h2>
   </div>
 
-  <!-- آياتي -->
-  <div class="category">
-    <img src="53281958-1F83-4CCD-A998-0E277578F599.jpeg">
-    <div class="category-title">Ayatee Favorite Fan</div>
-    <div class="category-title-ar">المعجب المفضل لآياتي</div>
-    <button>Vote / تصويت</button>
+  <div class="nominees" id="noor">
+    <div class="nominees-grid">
+      <div class="nominee">
+        <img src="image/nominee1.jpg">
+        <p>مرشح 1</p>
+        <button class="vote-btn">Vote</button>
+      </div>
+      <div class="nominee">
+        <img src="image/nominee2.jpg">
+        <p>مرشح 2</p>
+        <button class="vote-btn">Vote</button>
+      </div>
+    </div>
   </div>
-
-  <!-- نارين -->
-  <div class="category">
-    <img src="A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
-    <div class="category-title">Narin Favorite Fan</div>
-    <div class="category-title-ar">المعجب المفضل لنارين</div>
-    <button>Vote / تصويت</button>
-  </div>
-
-  <!-- غيث -->
-  <div class="category">
-    <img src="B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
-    <div class="category-title">Ghaith Favorite Fan</div>
-    <div class="category-title-ar">المعجب المفضل لغيث</div>
-    <button>Vote / تصويت</button>
-  </div>
-
-  <!-- تالين -->
-  <div class="category">
-    <img src="D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
-    <div class="category-title">TalinTube Favorite Fan</div>
-    <div class="category-title-ar">المعجب المفضل لتالين</div>
-    <button>Vote / تصويت</button>
-  </div>
-
-  <!-- بنين -->
-  <div class="category">
-    <img src="F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
-    <div class="category-title">Baneen Stars Favorite Fan</div>
-    <div class="category-title-ar">المعجب المفضل لبنين</div>
-    <button>Vote / تصويت</button>
-  </div>
-
-  <!-- بدون صور -->
-  <div class="category">
-    <div class="category-title">Bessan Favorite Fan</div>
-    <div class="category-title-ar">المعجب المفضل لبسّان</div>
-    <button>Vote / تصويت</button>
-  </div>
-
-  <div class="category">
-    <div class="category-title">Designer of the Year</div>
-    <div class="category-title-ar">مصمم السنة</div>
-    <button>Vote / تصويت</button>
-  </div>
-
-  <div class="category">
-    <div class="category-title">Fan of the Year</div>
-    <div class="category-title-ar">معجب السنة</div>
-    <button>Vote / تصويت</button>
-  </div>
-
 </div>
 
-<footer>
-  © 2026 Golden Fan Awards
-</footer>
+<!-- ===== Category 2 ===== -->
+<div class="category" onclick="toggleNominees('ayatee')">
+  <img src="image/ayatee.jpg">
+  <div class="category-title">
+    <h2>Ayatee Favorite Fan
+      <span class="ar">المعجب المفضل لآياتي</span>
+    </h2>
+  </div>
+
+  <div class="nominees" id="ayatee">
+    <div class="nominees-grid">
+      <div class="nominee">
+        <img src="image/nominee3.jpg">
+        <p>مرشح 1</p>
+        <button class="vote-btn">Vote</button>
+      </div>
+      <div class="nominee">
+        <img src="image/nominee4.jpg">
+        <p>مرشح 2</p>
+        <button class="vote-btn">Vote</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<script>
+function toggleNominees(id){
+  const el=document.getElementById(id);
+  el.style.display = el.style.display==="block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
