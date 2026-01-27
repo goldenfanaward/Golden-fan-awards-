@@ -29,11 +29,12 @@ header h1{
   color:#e6d8a8;
 }
 
+/* 🔥 تعديل اللون إلى بنفسجي ملكي */
 header p{
   margin-top:14px;
-  font-size:16px;
-  color:#e6d8a8;
-  opacity:.9;
+  font-size:17px;
+  color:#b38cff;
+  text-shadow:0 0 12px rgba(179,140,255,.55);
 }
 
 .container{
@@ -54,6 +55,23 @@ header p{
   box-shadow:
     0 25px 60px rgba(0,0,0,.65),
     inset 0 0 0 2px rgba(230,216,168,.35);
+  transition:.4s;
+}
+
+/* ✨ Hover ذهبي فخم */
+.card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:
+    0 0 35px rgba(230,216,168,.45),
+    0 30px 70px rgba(0,0,0,.75);
+}
+
+/* 👑 لمعة ذهبية + سوداء عند الضغط */
+.card:active{
+  transform:scale(0.97);
+  box-shadow:
+    0 0 40px rgba(230,216,168,.6),
+    inset 0 0 30px rgba(0,0,0,.6);
 }
 
 .card::before{
@@ -90,10 +108,13 @@ header p{
   letter-spacing:1px;
 }
 
+/* 📝 تثبيت ووضوح الكتابة */
 .overlay span{
   display:block;
   font-size:15px;
   color:#f3e9c6;
+  font-weight:600;
+  text-shadow:0 0 8px rgba(230,216,168,.35);
 }
 
 footer{
@@ -114,7 +135,6 @@ footer{
 
 <div class="container">
 
-  <!-- Ayatee -->
   <div class="card">
     <img src="53281958-1F83-4CCD-A998-0E277578F599.jpeg">
     <div class="overlay">
@@ -123,7 +143,6 @@ footer{
     </div>
   </div>
 
-  <!-- Noor -->
   <div class="card">
     <img src="0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
     <div class="overlay">
@@ -132,7 +151,6 @@ footer{
     </div>
   </div>
 
-  <!-- Narin -->
   <div class="card">
     <img src="A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
     <div class="overlay">
@@ -141,7 +159,6 @@ footer{
     </div>
   </div>
 
-  <!-- Ghaith -->
   <div class="card">
     <img src="B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
     <div class="overlay">
@@ -150,7 +167,6 @@ footer{
     </div>
   </div>
 
-  <!-- Talin -->
   <div class="card">
     <img src="D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
     <div class="overlay">
@@ -159,7 +175,6 @@ footer{
     </div>
   </div>
 
-  <!-- Baneen -->
   <div class="card">
     <img src="F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
     <div class="overlay">
@@ -168,7 +183,6 @@ footer{
     </div>
   </div>
 
-  <!-- Lana & Leen -->
   <div class="card">
     <img src="Image/lana-leen.jpeg">
     <div class="overlay">
@@ -180,23 +194,27 @@ footer{
   <div class="card">
     <img src="Image/bessan.jpeg">
     <div class="overlay">
-      <h2>Bessan Favorite Fan<br>المعجب المفضل لبيسان</h2>
+      <h2>BESSAN FAVORITE FAN</h2>
+      <span>المعجب المفضل لبيسان</span>
     </div>
   </div>
 
   <div class="card">
-   <img src="Image/editor.jpeg">
+    <img src="Image/editor.jpeg">
     <div class="overlay">
-      <h2>Editor of the Year<br>مصمم السنة</h2>
+      <h2>EDITOR OF THE YEAR</h2>
+      <span>مصمم السنة</span>
     </div>
   </div>
 
   <div class="card">
     <img src="Image/fan.jpeg">
     <div class="overlay">
-      <h2>Fan of the Year<br>معجب السنة</h2>
+      <h2>FAN OF THE YEAR</h2>
+      <span>معجب السنة</span>
     </div>
   </div>
+
 </div>
 
 <footer>
