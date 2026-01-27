@@ -16,9 +16,10 @@ body{
 }
 
 header{
-  padding:60px 20px 40px;
+  padding:60px 20px 45px;
   text-align:center;
-  background:radial-gradient(circle at top,#2b1f47,#0e0b14);
+  background:
+    radial-gradient(circle at top,#2b1f47,#0e0b14);
 }
 
 header h1{
@@ -28,10 +29,16 @@ header h1{
   color:#e6d8a8;
 }
 
-header p{
-  margin-top:14px;
+header .sub-en{
+  margin-top:12px;
   font-size:18px;
   letter-spacing:1px;
+  color:#e6d8a8;
+}
+
+header .sub-ar{
+  margin-top:6px;
+  font-size:16px;
   color:#d8ccff;
 }
 
@@ -50,12 +57,17 @@ header p{
   border-radius:22px;
   overflow:hidden;
   background:#1a1624;
-  box-shadow:0 20px 50px rgba(0,0,0,.45);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.45),
+    inset 0 0 0 1px rgba(230,216,168,.15);
   transition:.4s;
 }
 
 .card:hover{
   transform:translateY(-8px);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(230,216,168,.35);
 }
 
 .card img{
@@ -67,13 +79,15 @@ header p{
 .placeholder{
   width:100%;
   height:100%;
-  background:linear-gradient(135deg,#1f1a2e,#2a2340);
+  background:
+    linear-gradient(135deg,#1f1a2e,#2a2340);
 }
 
 .overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(14,11,20,.95),rgba(14,11,20,.25));
+  background:
+    linear-gradient(to top,rgba(14,11,20,.95),rgba(14,11,20,.25));
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
@@ -82,9 +96,9 @@ header p{
 
 .overlay h2{
   font-family:'Cinzel',serif;
-  font-size:20px;
+  font-size:19px;
   color:#f1e6c8;
-  line-height:1.6;
+  line-height:1.7;
 }
 
 footer{
@@ -100,80 +114,80 @@ footer{
 
 <header>
   <h1>Golden Fan Awards</h1>
-  <p>صوّت لمعجبك المفضل</p>
+  <div class="sub-en">Vote Now For Your Favorite Fan</div>
+  <div class="sub-ar">صوّت الآن للمعجب المفضل</div>
 </header>
 
 <div class="container">
 
-  <!-- نور ستارز -->
   <div class="card">
     <img src="0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
     <div class="overlay">
-      <h2>المعجب المفضل لنور ستارز</h2>
+      <h2>Noor Stars Favorite Fan<br>المعجب المفضل لنور ستارز</h2>
     </div>
   </div>
 
-  <!-- آياتي -->
   <div class="card">
     <img src="53281958-1F83-4CCD-A998-0E277578F599.jpeg">
     <div class="overlay">
-      <h2>المعجب المفضل لآياتي</h2>
+      <h2>Ayatee Favorite Fan<br>المعجب المفضل لآياتي</h2>
     </div>
   </div>
 
-  <!-- نارين -->
   <div class="card">
     <img src="A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
     <div class="overlay">
-      <h2>المعجب المفضل لنارين</h2>
+      <h2>Narin Favorite Fan<br>المعجب المفضل لنارين</h2>
     </div>
   </div>
 
-  <!-- غيث -->
   <div class="card">
     <img src="B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
     <div class="overlay">
-      <h2>المعجب المفضل لغيث</h2>
+      <h2>ghaith Favorite Fan<br>المعجب المفضل لغيث</h2>
     </div>
   </div>
 
-  <!-- تالين -->
   <div class="card">
     <img src="D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
     <div class="overlay">
-      <h2>المعجب المفضل لتالين</h2>
+      <h2>Talin Favorite Fan<br>المعجب المفضل لتالين</h2>
     </div>
   </div>
 
-  <!-- بنين -->
   <div class="card">
     <img src="F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
     <div class="overlay">
-      <h2>المعجب المفضل لبنين</h2>
+      <h2>Baneen Favorite Fan<br>المعجب المفضل لبنين</h2>
     </div>
   </div>
 
-  <!-- بيسان -->
+  <!-- Lana & Leen -->
   <div class="card">
     <div class="placeholder"></div>
     <div class="overlay">
-      <h2>المعجب المفضل لبيسان</h2>
+      <h2>Lana & Leen Favorite Fan<br>المعجب المفضل للانا ولين</h2>
     </div>
   </div>
 
-  <!-- مصمم السنة -->
   <div class="card">
     <div class="placeholder"></div>
     <div class="overlay">
-      <h2>مصمم السنة</h2>
+      <h2>Bessan Favorite Fan<br>المعجب المفضل لبيسان</h2>
     </div>
   </div>
 
-  <!-- معجب السنة -->
   <div class="card">
     <div class="placeholder"></div>
     <div class="overlay">
-      <h2>معجب السنة</h2>
+      <h2>Editor of the Year<br>مصمم السنة</h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="placeholder"></div>
+    <div class="overlay">
+      <h2>Fan of the Year<br>معجب السنة</h2>
     </div>
   </div>
 
