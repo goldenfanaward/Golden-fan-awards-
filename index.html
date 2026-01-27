@@ -29,10 +29,9 @@ header h1{
   color:#e6d8a8;
 }
 
-/* 🔥 تعديل اللون إلى بنفسجي ملكي */
 header p{
   margin-top:14px;
-  font-size:17px;
+  font-size:19px;
   color:#b38cff;
   text-shadow:0 0 12px rgba(179,140,255,.55);
 }
@@ -44,6 +43,11 @@ header p{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:32px;
+}
+
+a.card-link{
+  text-decoration:none;
+  color:inherit;
 }
 
 .card{
@@ -58,7 +62,6 @@ header p{
   transition:.4s;
 }
 
-/* ✨ Hover ذهبي فخم */
 .card:hover{
   transform:translateY(-6px) scale(1.02);
   box-shadow:
@@ -66,12 +69,8 @@ header p{
     0 30px 70px rgba(0,0,0,.75);
 }
 
-/* 👑 لمعة ذهبية + سوداء عند الضغط */
 .card:active{
   transform:scale(0.97);
-  box-shadow:
-    0 0 40px rgba(230,216,168,.6),
-    inset 0 0 30px rgba(0,0,0,.6);
 }
 
 .card::before{
@@ -102,19 +101,19 @@ header p{
 
 .overlay h2{
   font-family:'Cinzel',serif;
-  font-size:18px;
+  font-size:16px;
   color:#e6d8a8;
-  margin-bottom:6px;
   letter-spacing:1px;
+  text-transform:uppercase;
+  line-height:1.2;
+  direction:ltr;
+  unicode-bidi:embed;
 }
 
-/* 📝 تثبيت ووضوح الكتابة */
-.overlay span{
-  display:block;
-  font-size:15px;
-  color:#f3e9c6;
-  font-weight:600;
-  text-shadow:0 0 8px rgba(230,216,168,.35);
+@media (max-width:600px){
+  .overlay h2{
+    font-size:13px;
+  }
 }
 
 footer{
@@ -135,183 +134,73 @@ footer{
 
 <div class="container">
 
+<a href="ayatee.html" class="card-link">
   <div class="card">
     <img src="53281958-1F83-4CCD-A998-0E277578F599.jpeg">
-    <div class="overlay">
-      <h2>AYATEE FAVORITE FAN</h2>
-      <span>المعجب المفضل لآياتي</span>
-      <a href="ayatee.html" style="text-decoration:none; color:inherit;">
-  <div class="card">
-    <img src="53281958-1F83-4CCD-A998-0E277578F599.jpeg">
-    <div class="overlay">
-      <h2>AYATEE FAVORITE FAN</h2>
-      <span>المعجب المفضل لآياتي</span>
-    </div>
+    <div class="overlay"><h2>AYATEE FAVORITE FAN</h2></div>
   </div>
 </a>
 
-    </div>
-  </div>
-
+<a href="noor.html" class="card-link">
   <div class="card">
     <img src="0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
-    <div class="overlay">
-      <h2>NOOR STARS FAVORITE FAN</h2>
-     <span>المعجب المفضل لنور ستارز</span>
-      <a href="noor.html" style="text-decoration:none; color:inherit;">
-  <div class="card">
-    <img src="0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
-    <div class="overlay">
-      <h2>NOOR STARS FAVORITE FAN</h2>
-      <span>المعجب المفضل لنور ستارز</span>
-    </div>
+    <div class="overlay"><h2>NOOR STARS FAVORITE FAN</h2></div>
   </div>
 </a>
-          </div>
-  </div>
-  
- <div class="card">
-    <img src="D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
-    <div class="overlay">
-      <h2>TALIN FAVORITE FAN</h2>
-      <span>المعجب المفضل لتالين</span>
-      <a href="talin.html" style="text-decoration:none; color:inherit;">
+
+<a href="talin.html" class="card-link">
   <div class="card">
     <img src="D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
-    <div class="overlay">
-      <h2>TALIN FAVORITE FAN</h2>
-      <span>المعجب المفضل لتالين</span>
-    </div>
+    <div class="overlay"><h2>TALIN FAVORITE FAN</h2></div>
   </div>
 </a>
 
-    </div>
-  </div>
-
+<a href="narin.html" class="card-link">
   <div class="card">
     <img src="A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
-    <div class="overlay">
-      <h2>NARIN FAVORITE FAN</h2>
-      <span>المعجب المفضل لنارين</span>
-      <a href="narin.html" style="text-decoration:none; color:inherit;">
-  <div class="card">
-    <img src="A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
-    <div class="overlay">
-      <h2>NARIN FAVORITE FAN</h2>
-      <span>المعجب المفضل لنارين</span>
-    </div>
+    <div class="overlay"><h2>NARIN FAVORITE FAN</h2></div>
   </div>
 </a>
 
-    </div>
-  </div>
-
+<a href="ghaith.html" class="card-link">
   <div class="card">
     <img src="B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
-    <div class="overlay">
-      <h2>GHAITH FAVORITE FAN</h2>
-      <span>المعجب المفضل لغيث</span>
-     <a href="ghaith.html" style="text-decoration:none; color:inherit;">
-  <div class="card">
-    <img src="B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
-    <div class="overlay">
-      <h2>GHAITH FAVORITE FAN</h2>
-      <span>المعجب المفضل لغيث</span>
-    </div>
-  </div>
-</a>
- 
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
-    <div class="overlay">
-      <h2>BANEEN FAVORITE FAN</h2>
-      <span>المعجب المفضل لبنين</span>
-      <a href="baneen.html" style="text-decoration:none; color:inherit;">
-  <div class="card">
-    <img src="F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
-    <div class="overlay">
-      <h2>BANEEN FAVORITE FAN</h2>
-      <span>المعجب المفضل لبنين</span>
-    </div>
+    <div class="overlay"><h2>GHAITH FAVORITE FAN</h2></div>
   </div>
 </a>
 
-    </div>
-  </div>
-
+<a href="baneen.html" class="card-link">
   <div class="card">
-    <img src="Image/lana-leen.jpeg">
-    <div class="overlay">
-      <h2>LANA FAVORITE FAN</h2>
-      <span> المعجب المفضل للانا</span>
-      <a href="lana.html" style="text-decoration:none; color:inherit;">
+    <img src="F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
+    <div class="overlay"><h2>BANEEN FAVORITE FAN</h2></div>
+  </div>
+</a>
+
+<a href="lana.html" class="card-link">
   <div class="card">
     <img src="Image/lana.jpeg">
-    <div class="overlay">
-      <h2>LANA FAVORITE FAN</h2>
-      <span>المعجب المفضل للانا</span>
-    </div>
+    <div class="overlay"><h2>LANA FAVORITE FAN</h2></div>
   </div>
 </a>
 
-    </div>
-  </div>
-
+<a href="bessan.html" class="card-link">
   <div class="card">
     <img src="Image/bessan.jpeg">
-    <div class="overlay">
-      <h2>BESSAN FAVORITE FAN</h2>
-      <span>المعجب المفضل لبيسان</span>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="Image/editor.jpeg">
-    <div class="overlay">
-      <h2>EDITOR OF THE YEAR</h2>
-      <span>مصمم السنة</span>
-      <a href="bessan.html" style="text-decoration:none; color:inherit;">
-        
-        </div>
-  </div>
-  
-  <div class="card">
-    <img src="Image/bessan.jpeg">
-    <div class="overlay">
-      <h2>BESSAN FAVORITE FAN</h2>
-      <span>المعجب المفضل لبيسان</span>
-    </div>
+    <div class="overlay"><h2>BESSAN FAVORITE FAN</h2></div>
   </div>
 </a>
 
-    </div>
-  </div>
-
+<a href="fan.html" class="card-link">
   <div class="card">
     <img src="Image/fan.jpeg">
-    <div class="overlay">
-      <h2>FAN OF THE YEAR</h2>
-      <span>معجب السنة</span>
-      <a href="fan.html" style="text-decoration:none; color:inherit;">
-  <div class="card">
-    <img src="Image/fan.jpeg">
-    <div class="overlay">
-      <h2>FAN OF THE YEAR</h2>
-      <span>معجب السنة</span>
-    </div>
+    <div class="overlay"><h2>FAN OF THE YEAR</h2></div>
   </div>
 </a>
-
-    </div>
-  </div>
 
 </div>
 
 <footer>
-  © 2026 Golden Fan Awards
+© 2026 Golden Fan Awards
 </footer>
 
 </body>
