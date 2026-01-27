@@ -12,7 +12,7 @@ body{
   margin:0;
   font-family:'Poppins',sans-serif;
   background:
-    radial-gradient(circle at top,#2a1f47 0%,#0e0b14 50%,#06050a 100%);
+    radial-gradient(circle at top,#3a2466 0%,#120b1f 55%,#07040d 100%);
   color:#f5f3ff;
 }
 
@@ -23,18 +23,25 @@ header{
 
 header h1{
   font-family:'Cinzel',serif;
-  font-size:46px;
-  letter-spacing:4px;
-  color:#e6d8a8;
+  font-size:48px;
+  letter-spacing:5px;
+  color:#f0e0a6;
 }
 
-header p{
+header .subtitle-en{
   margin-top:14px;
   font-size:18px;
-  color:#d6cfff;
+  letter-spacing:2px;
+  color:#e8dbff;
 }
 
-/* الشبكة 2×2 */
+header .subtitle-ar{
+  margin-top:8px;
+  font-size:17px;
+  color:#cfc6ff;
+}
+
+/* شبكة 2×2 */
 .container{
   max-width:1200px;
   margin:auto;
@@ -46,10 +53,11 @@ header p{
 
 .card{
   position:relative;
-  height:330px;
-  border-radius:26px;
+  height:340px;
+  border-radius:28px;
   overflow:hidden;
-  box-shadow:0 30px 70px rgba(0,0,0,.6);
+  background:#1a1429;
+  box-shadow:0 35px 80px rgba(0,0,0,.65);
   transition:.4s;
 }
 
@@ -73,11 +81,11 @@ header p{
   height:200%;
   background:linear-gradient(
     120deg,
-    transparent 30%,
-    rgba(255,215,120,.25),
+    transparent 35%,
+    rgba(255,215,140,.28),
     transparent 70%
   );
-  transition:0.8s;
+  transition:.9s;
 }
 
 .card:hover::after{
@@ -91,9 +99,9 @@ header p{
   inset:0;
   background:linear-gradient(
     to top,
-    rgba(8,6,14,.95),
-    rgba(8,6,14,.35),
-    rgba(8,6,14,.05)
+    rgba(10,7,18,.96),
+    rgba(10,7,18,.45),
+    rgba(10,7,18,.08)
   );
   display:flex;
   flex-direction:column;
@@ -103,16 +111,16 @@ header p{
 
 .en{
   font-family:'Cinzel',serif;
-  font-size:20px;
+  font-size:21px;
   letter-spacing:2px;
-  color:#f1e6c8;
+  color:#f3e6b8;
 }
 
 .ar{
   font-family:'Playfair Display',serif;
   font-size:18px;
   margin-top:6px;
-  color:#e4ddff;
+  color:#e2dbff;
 }
 
 footer{
@@ -128,11 +136,13 @@ footer{
 
 <header>
   <h1>Golden Fan Awards</h1>
-  <p>صوّت لمعجبك المفضل</p>
+  <div class="subtitle-en">An Elegant Celebration of the Most Loyal Fans</div>
+  <div class="subtitle-ar">صوّت لمعجبك المفضل</div>
 </header>
 
 <div class="container">
 
+  <!-- Noor -->
   <div class="card">
     <img src="image/0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
     <div class="overlay">
@@ -141,6 +151,7 @@ footer{
     </div>
   </div>
 
+  <!-- Ayatee -->
   <div class="card">
     <img src="image/53281958-1F83-4CCD-A998-0E277578F599.jpeg">
     <div class="overlay">
@@ -149,6 +160,7 @@ footer{
     </div>
   </div>
 
+  <!-- Narin -->
   <div class="card">
     <img src="image/A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
     <div class="overlay">
@@ -157,6 +169,7 @@ footer{
     </div>
   </div>
 
+  <!-- Ghaith -->
   <div class="card">
     <img src="image/B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
     <div class="overlay">
@@ -165,6 +178,7 @@ footer{
     </div>
   </div>
 
+  <!-- Talin -->
   <div class="card">
     <img src="image/D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
     <div class="overlay">
@@ -173,6 +187,7 @@ footer{
     </div>
   </div>
 
+  <!-- Baneen -->
   <div class="card">
     <img src="image/F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
     <div class="overlay">
@@ -181,10 +196,29 @@ footer{
     </div>
   </div>
 
-  <!-- بدون صور حالياً -->
-  <div class="card"><div class="overlay"><div class="en">Bessan Favorite Fan</div><div class="ar">المعجب المفضل لبيسان</div></div></div>
-  <div class="card"><div class="overlay"><div class="en">Designer of the Year</div><div class="ar">مصمم السنة</div></div></div>
-  <div class="card"><div class="overlay"><div class="en">Fan of the Year</div><div class="ar">معجب السنة</div></div></div>
+  <!-- Bessan -->
+  <div class="card">
+    <div class="overlay">
+      <div class="en">Bessan Favorite Fan</div>
+      <div class="ar">المعجب المفضل لبيسان</div>
+    </div>
+  </div>
+
+  <!-- Designer -->
+  <div class="card">
+    <div class="overlay">
+      <div class="en">Designer of the Year</div>
+      <div class="ar">مصمم السنة</div>
+    </div>
+  </div>
+
+  <!-- Fan of the Year -->
+  <div class="card">
+    <div class="overlay">
+      <div class="en">Fan of the Year</div>
+      <div class="ar">معجب السنة</div>
+    </div>
+  </div>
 
 </div>
 
