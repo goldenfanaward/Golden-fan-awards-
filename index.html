@@ -5,43 +5,35 @@
 <title>Golden Fan Awards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:'Poppins',sans-serif;
-  color:#f5f3ff;
+  font-family:'Tajawal',sans-serif;
   background:
-    radial-gradient(circle at 10% 10%, rgba(230,216,168,.08), transparent 40%),
-    radial-gradient(circle at 90% 20%, rgba(230,216,168,.06), transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(230,216,168,.05), transparent 40%),
-    #0e0b14;
+    radial-gradient(circle at top, rgba(218,190,120,.15), transparent 45%),
+    linear-gradient(160deg,#120b1f,#241437,#120b1f);
+  color:#f5f3ff;
 }
 
 header{
-  padding:60px 20px 45px;
   text-align:center;
+  padding:70px 20px 40px;
 }
 
 header h1{
   font-family:'Cinzel',serif;
-  font-size:46px;
+  font-size:42px;
   letter-spacing:3px;
   color:#e6d8a8;
 }
 
-header .sub-en{
-  margin-top:12px;
-  font-size:18px;
-  letter-spacing:1px;
-  color:#e6d8a8;
-}
-
-header .sub-ar{
-  margin-top:6px;
+header p{
+  margin-top:14px;
   font-size:16px;
-  color:#d8ccff;
+  color:#e6d8a8;
+  opacity:.9;
 }
 
 .container{
@@ -53,87 +45,55 @@ header .sub-ar{
   gap:32px;
 }
 
-/* ===== CARD ===== */
 .card{
   position:relative;
-  aspect-ratio:1/1;
-  border-radius:18px;
+  aspect-ratio:3/4;
+  border-radius:26px;
   overflow:hidden;
-  background:#14101f;
+  background:#1a1028;
   box-shadow:
-    0 25px 55px rgba(0,0,0,.5),
-    inset 0 0 0 1px rgba(230,216,168,.18);
-  transition:.45s;
+    0 25px 60px rgba(0,0,0,.65),
+    inset 0 0 0 2px rgba(230,216,168,.35);
 }
 
 .card::before{
   content:"";
   position:absolute;
-  inset:0;
-  border-radius:18px;
-  background:
-    linear-gradient(120deg,
-      transparent 30%,
-      rgba(230,216,168,.35),
-      transparent 70%);
-  opacity:0;
-  transition:.45s;
-}
-
-.card:hover::before{
-  opacity:1;
-}
-
-.card:hover{
-  transform:translateY(-8px) scale(1.01);
+  inset:14px;
+  border-radius:20px;
   box-shadow:
-    0 35px 70px rgba(0,0,0,.65),
-    inset 0 0 0 2px rgba(230,216,168,.45);
+    inset 0 0 0 3px rgba(230,216,168,.6),
+    inset 0 0 25px rgba(230,216,168,.25);
+  pointer-events:none;
 }
 
 .card img{
   width:100%;
   height:100%;
-  object-fit:contain;
-  background:#0e0b14;
-  transition:.45s;
+  object-fit:cover;
 }
 
-.card:hover img{
-  filter:brightness(1.05) contrast(1.05);
-}
-
-/* Placeholder */
-.placeholder{
-  width:100%;
-  height:100%;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      #1a1528,
-      #1a1528 12px,
-      #221c34 12px,
-      #221c34 24px
-    );
-}
-
-/* Overlay */
 .overlay{
   position:absolute;
-  inset:0;
-  background:
-    linear-gradient(to top,rgba(14,11,20,.95),rgba(14,11,20,.15));
-  display:flex;
-  align-items:flex-end;
-  padding:22px;
+  bottom:0;
+  width:100%;
+  padding:22px 18px 26px;
+  background:linear-gradient(to top, rgba(18,11,31,.95), transparent);
+  text-align:center;
 }
 
 .overlay h2{
   font-family:'Cinzel',serif;
-  font-size:19px;
-  line-height:1.7;
-  color:#f1e6c8;
-  text-shadow:0 0 8px rgba(230,216,168,.35);
+  font-size:18px;
+  color:#e6d8a8;
+  margin-bottom:6px;
+  letter-spacing:1px;
+}
+
+.overlay span{
+  display:block;
+  font-size:15px;
+  color:#f3e9c6;
 }
 
 footer{
@@ -148,80 +108,72 @@ footer{
 <body>
 
 <header>
-  <h1>Golden Fan Awards</h1>
-  <div class="sub-en">Vote Now For Your Favorite Fan</div>
-  <div class="sub-ar">صوّت الآن للمعجب المفضل</div>
+  <h1>GOLDEN FAN AWARDS</h1>
+  <p>Golden Fans Competition<br>صوّت الآن للمعجب المفضل</p>
 </header>
 
 <div class="container">
 
+  <!-- Ayatee -->
   <div class="card">
-    <img src="0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
+    <img src="Image/53281958-1F83-4CCD-A998-0E277578F599.jpeg">
     <div class="overlay">
-      <h2>Noor Stars Favorite Fan<br>المعجب المفضل لنور ستارز</h2>
+      <h2>AYATEE FAVORITE FAN</h2>
+      <span>المعجب المفضل لآياتي</span>
     </div>
   </div>
 
+  <!-- Noor -->
   <div class="card">
-    <img src="53281958-1F83-4CCD-A998-0E277578F599.jpeg">
+    <img src="Image/0B19503E-B3C0-40A8-98C3-4AE607BDBAE5.jpeg">
     <div class="overlay">
-      <h2>Ayatee Favorite Fan<br>المعجب المفضل لآياتي</h2>
+      <h2>NOOR STARS FAVORITE FAN</h2>
+      <span>المعجب المفضل لنور ستارز</span>
     </div>
   </div>
 
+  <!-- Narin -->
   <div class="card">
-    <img src="A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
+    <img src="Image/A78D5278-E106-418B-A7C8-FB196BD3AC1B.jpeg">
     <div class="overlay">
-      <h2>Narin Favorite Fan<br>المعجب المفضل لنارين</h2>
+      <h2>NARIN FAVORITE FAN</h2>
+      <span>المعجب المفضل لنارين</span>
     </div>
   </div>
 
+  <!-- Ghaith -->
   <div class="card">
-    <img src="B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
+    <img src="Image/B384F06B-ABB3-4B81-94FF-D3C98AD17867.jpeg">
     <div class="overlay">
-      <h2>ghaith Favorite Fan<br>المعجب المفضل لغيث</h2>
+      <h2>GHAITH FAVORITE FAN</h2>
+      <span>المعجب المفضل لغيث</span>
     </div>
   </div>
 
+  <!-- Talin -->
   <div class="card">
-    <img src="D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
+    <img src="Image/D408208E-E52A-4883-AA9F-58F608395A69.jpeg">
     <div class="overlay">
-      <h2>Talin Favorite Fan<br>المعجب المفضل لتالين</h2>
+      <h2>TALIN FAVORITE FAN</h2>
+      <span>المعجب المفضل لتالين</span>
     </div>
   </div>
 
+  <!-- Baneen -->
   <div class="card">
-    <img src="F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
+    <img src="Image/F954AEF2-3F8D-40B9-9116-096DBE2D791F.jpeg">
     <div class="overlay">
-      <h2>Baneen Favorite Fan<br>المعجب المفضل لبنين</h2>
+      <h2>BANEEN FAVORITE FAN</h2>
+      <span>المعجب المفضل لبنين</span>
     </div>
   </div>
 
+  <!-- Lana & Leen -->
   <div class="card">
-    <div class="placeholder"></div>
+    <img src="Image/lana-leen.jpeg">
     <div class="overlay">
-      <h2>Lana & Leen Favorite Fan<br>المعجب المفضل للانا ولين</h2>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="placeholder"></div>
-    <div class="overlay">
-      <h2>Bessan Favorite Fan<br>المعجب المفضل لبيسان</h2>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="placeholder"></div>
-    <div class="overlay">
-      <h2>Editor of the Year<br>مصمم السنة</h2>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="placeholder"></div>
-    <div class="overlay">
-      <h2>Fan of the Year<br>معجب السنة</h2>
+      <h2>LANA & LEEN FAVORITE FAN</h2>
+      <span>المعجب المفضل للانا ولين</span>
     </div>
   </div>
 
