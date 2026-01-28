@@ -19,7 +19,7 @@ body{
 
 header{
   text-align:center;
-  padding:60px 20px 30px;
+  padding:60px 20px 20px;
 }
 
 header h1{
@@ -29,10 +29,11 @@ header h1{
   color:#e6d8a8;
 }
 
-header p{
-  margin-top:12px;
-  font-size:20px;
+.subtitle{
+  margin-top:14px;
+  font-size:18px;
   color:#b38cff;
+  text-shadow:0 0 14px rgba(179,140,255,.6);
 }
 
 .container{
@@ -44,29 +45,41 @@ header p{
   gap:30px;
 }
 
-/* ===== NOMINEE CARD ===== */
+/* ===== CARD ===== */
 .nominee{
   background:#1a1028;
-  border-radius:22px;
+  border-radius:24px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition:transform .4s ease, box-shadow .4s ease;
+  transition:.4s;
+  position:relative;
+}
+
+.nominee:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:
+    0 0 0 2px #e6d8a8,
+    0 25px 70px rgba(0,0,0,.7);
+}
+
+.nominee::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  background:linear-gradient(120deg,transparent,#e6d8a8,transparent);
+  opacity:0;
+  transition:.4s;
+}
+
+.nominee:hover::after{
+  opacity:.25;
 }
 
 .nominee img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
-}
-
-.nominee.selected{
-  animation:selectGlow .7s ease;
-}
-
-@keyframes selectGlow{
-  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
-  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
-  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
 }
 
 .info{
@@ -78,54 +91,40 @@ header p{
   font-family:'Cinzel',serif;
   font-size:18px;
   color:#e6d8a8;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 
 /* ===== VOTE BUTTON ===== */
-.info button{
-  position:relative;
-  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
+.vote-btn{
+  background:linear-gradient(135deg,#e6d8a8,#bfa76a,#000);
   border:none;
   color:#120b1f;
-  padding:10px 26px;
+  padding:10px 30px;
   border-radius:30px;
   font-size:14px;
-  font-weight:600;
   cursor:pointer;
+  position:relative;
   overflow:hidden;
-  transition:transform .25s ease, box-shadow .25s ease;
 }
 
-.info button::before{
+.vote-btn::after{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.8),transparent);
   transform:translateX(-100%);
-}
-
-.info button:hover::before{
-  animation:shine 1.2s ease;
+  animation:shine 2.5s infinite;
 }
 
 @keyframes shine{
-  to{transform:translateX(100%);}
-}
-
-.info button:hover{
-  transform:scale(1.08);
-  box-shadow:0 8px 25px rgba(230,216,168,.6);
-}
-
-.info button:active{
-  transform:scale(0.95);
+  to{transform:translateX(100%)}
 }
 
 /* ===== POPUP ===== */
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.75);
+  background:rgba(0,0,0,.8);
   display:none;
   align-items:center;
   justify-content:center;
@@ -134,44 +133,56 @@ header p{
 
 .popup-box{
   background:#1a1028;
-  border-radius:22px;
+  border-radius:26px;
   padding:30px;
   text-align:center;
   width:320px;
-  box-shadow:0 0 40px rgba(230,216,168,.5);
+  box-shadow:0 0 40px rgba(230,216,168,.6);
+  animation:zoom .4s ease;
+}
+
+@keyframes zoom{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
 }
 
 .popup-img{
-  width:160px;
-  height:160px;
-  border-radius:12px;
+  width:100%;
+  aspect-ratio:1/1;
   object-fit:cover;
-  border:4px solid #e6d8a8;
-  margin-bottom:16px;
+  border-radius:14px;
+  margin-bottom:15px;
+  border:3px solid #e6d8a8;
 }
 
 .popup h3{
-  color:#e6d8a8;
   font-family:'Cinzel',serif;
+  color:#e6d8a8;
   margin-bottom:10px;
 }
 
 .popup p{
   color:#e6d8a8;
   margin-bottom:20px;
-  font-size:15px;
 }
 
-.popup button{
-  margin:8px;
-  padding:10px 20px;
-  border-radius:25px;
+.confirm{
+  background:linear-gradient(135deg,#e6d8a8,#bfa76a);
   border:none;
+  padding:10px 30px;
+  border-radius:30px;
+  cursor:pointer;
+  color:#000;
+  font-weight:600;
+}
+
+.cancel{
+  margin-top:10px;
+  background:none;
+  border:none;
+  color:#000;
   cursor:pointer;
 }
-
-.confirm{background:#e6d8a8;color:#120b1f;}
-.cancel{background:#444;color:#fff;}
 
 footer{
   text-align:center;
@@ -186,33 +197,34 @@ footer{
 
 <header>
   <h1>NOOR STARS FAVORITE FAN</h1>
-  <p>Vote / تصويت للمعجب المفضل</p>
+  <div class="subtitle">تصويت / Vote للمعجب المفضل</div>
 </header>
 
 <div class="container">
 
-<div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="openVote('Lana',this)">Vote</button></div></div>
-<div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="openVote('Linda',this)">Vote</button></div></div>
-<div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="openVote('Namarg',this)">Vote</button></div></div>
-<div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button onclick="openVote('Buchra',this)">Vote</button></div></div>
-<div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button onclick="openVote('Maryam',this)">Vote</button></div></div>
-<div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button onclick="openVote('Hiba',this)">Vote</button></div></div>
-<div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button onclick="openVote('Asma',this)">Vote</button></div></div>
-<div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="openVote('Louay',this)">Vote</button></div></div>
-<div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="openVote('Meera',this)">Vote</button></div></div>
-<div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="openVote('Zahra',this)">Vote</button></div></div>
+<div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button class="vote-btn" onclick="openVote('Lana',this)">Vote</button></div></div>
+<div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button class="vote-btn" onclick="openVote('Linda',this)">Vote</button></div></div>
+<div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button class="vote-btn" onclick="openVote('Namarg',this)">Vote</button></div></div>
+<div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button class="vote-btn" onclick="openVote('Buchra',this)">Vote</button></div></div>
+<div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button class="vote-btn" onclick="openVote('Maryam',this)">Vote</button></div></div>
+<div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button class="vote-btn" onclick="openVote('Hiba',this)">Vote</button></div></div>
+<div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button class="vote-btn" onclick="openVote('Asma',this)">Vote</button></div></div>
+<div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button class="vote-btn" onclick="openVote('Louay',this)">Vote</button></div></div>
+<div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button class="vote-btn" onclick="openVote('Meera',this)">Vote</button></div></div>
+<div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button class="vote-btn" onclick="openVote('Zahra',this)">Vote</button></div></div>
 
 </div>
 
 <footer onclick="admin()">© 2026 Golden Fan Awards</footer>
 
+<!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <img id="pImg" class="popup-img">
     <h3 id="pName"></h3>
     <p>هل أنت جاهز للتصويت؟<br>Are you ready to vote?</p>
-    <button class="confirm" onclick="confirmVote()">Vote</button>
-    <button class="cancel" onclick="closePopup()">Cancel</button>
+    <button class="confirm" onclick="confirmVote()">تأكيد التصويت</button><br>
+    <button class="cancel" onclick="closePopup()">إغلاق</button>
   </div>
 </div>
 
@@ -221,14 +233,7 @@ let currentName='';
 let currentBtn=null;
 
 function openVote(name,btn){
-  if(localStorage.getItem('voted_noor')){
-    alert('لقد قمت بالتصويت مسبقاً');
-    return;
-  }
-
-  btn.closest('.nominee').classList.add('selected');
-  setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
-
+  if(localStorage.getItem('voted_noor')) return alert('لقد قمت بالتصويت مسبقاً');
   currentName=name;
   currentBtn=btn;
   document.getElementById('pName').innerText=name;
@@ -242,7 +247,8 @@ function closePopup(){
 
 function confirmVote(){
   let key='noor_'+currentName;
-  localStorage.setItem(key,(+localStorage.getItem(key)||0)+1);
+  let count=parseInt(localStorage.getItem(key)||'0');
+  localStorage.setItem(key,count+1);
   localStorage.setItem('voted_noor','yes');
   alert('شكراً لتصويتك 💛');
   closePopup();
@@ -252,12 +258,11 @@ function admin(){
   let p=prompt('كلمة السر');
   if(p!=='2009') return;
   let r='';
-  for(let k in localStorage){
-    if(k.startsWith('noor_')){
-      r+=k.replace('noor_','')+' : '+localStorage[k]+'\n';
-    }
-  }
-  alert(r||'لا يوجد أصوات بعد');
+  ['Lana','Linda','Namarg','Buchra','Maryam','Hiba','Asma','Louay','Meera','Zahra']
+  .forEach(n=>{
+    r+=n+': '+(localStorage.getItem('noor_'+n)||0)+'\n';
+  });
+  alert(r);
 }
 </script>
 
