@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>bessan – Favorite Fan</title>
+<title>BESSAN – Favorite Fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -16,83 +16,32 @@ body{
     linear-gradient(160deg,#120b1f,#241437,#120b1f);
   color:#f5f3ff;
 }
-
-header{
-  text-align:center;
-  padding:60px 20px 30px;
+header{text-align:center;padding:60px 20px 30px;}
+header h1{font-family:'Cinzel',serif;font-size:36px;letter-spacing:2px;color:#e6d8a8;}
+header p{margin-top:12px;font-size:20px;color:#b38cff;}
+.container{max-width:1100px;margin:auto;padding:40px 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
+.nominee{background:#1a1028;border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.6);transition:.4s;}
+.nominee img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+.nominee.selected{animation:selectGlow .7s ease;}
+@keyframes selectGlow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
 }
-
-header h1{
-  font-family:'Cinzel',serif;
-  font-size:36px;
-  letter-spacing:2px;
-  color:#e6d8a8;
-}
-
-header p{
-  margin-top:12px;
-  font-size:20px;
-  color:#b38cff;
-}
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:40px 20px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:24px;
-}
-
-.nominee{
-  background:#1a1028;
-  border-radius:22px;
-  padding:30px 20px;
-  text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition:.4s;
-}
-
-.nominee:hover{
-  transform:scale(1.03);
-  box-shadow:0 0 30px rgba(230,216,168,.4);
-}
-
-.nominee h2{
-  font-family:'Cinzel',serif;
-  font-size:18px;
-  color:#e6d8a8;
-  margin-bottom:18px;
-}
-
-.nominee button{
+.info{padding:18px;text-align:center;}
+.info h2{font-family:'Cinzel',serif;font-size:18px;color:#e6d8a8;margin-bottom:12px;}
+.info button{
   background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
-  border:none;
-  color:#120b1f;
-  padding:10px 28px;
-  border-radius:30px;
-  font-size:14px;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
+  border:none;color:#120b1f;padding:10px 26px;
+  border-radius:30px;cursor:pointer;font-weight:600;
 }
-
-.nominee button:hover{
-  transform:scale(1.1);
-  box-shadow:0 8px 25px rgba(230,216,168,.6);
-}
-
-.nominee button:disabled{
-  opacity:.4;
-  cursor:not-allowed;
-  box-shadow:none;
-}
-
-footer{
-  text-align:center;
-  padding:30px;
-  opacity:.6;
-}
+.popup{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:999;}
+.popup-box{background:#1a1028;border-radius:22px;padding:30px;text-align:center;width:320px;box-shadow:0 0 40px rgba(230,216,168,.5);}
+.popup-img{width:160px;height:160px;border-radius:12px;object-fit:cover;border:4px solid #e6d8a8;margin-bottom:16px;}
+.popup h3{color:#e6d8a8;font-family:'Cinzel',serif;}
+.popup p{color:#e6d8a8;margin-bottom:20px;}
+.confirm{background:#e6d8a8;color:#120b1f;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;}
+.cancel{background:#444;color:#fff;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;}
 </style>
 </head>
 
@@ -105,34 +54,72 @@ footer{
 
 <div class="container">
 
-<div class="nominee"><h2>Tween</h2><button onclick="vote('Tween',this)">Vote</button></div>
-<div class="nominee"><h2>Yamen</h2><button onclick="vote('Yamen',this)">Vote</button></div>
-<div class="nominee"><h2>Amar</h2><button onclick="vote('Amar',this)">Vote</button></div>
-<div class="nominee"><h2>Raghad</h2><button onclick="vote('Raghad',this)">Vote</button></div>
-<div class="nominee"><h2>Barhom</h2><button onclick="vote('Barhom',this)">Vote</button></div>
-<div class="nominee"><h2>Romoch</h2><button onclick="vote('Romoch',this)">Vote</button></div>
-<div class="nominee"><h2>Lamis</h2><button onclick="vote('Lamis',this)">Vote</button></div>
-<div class="nominee"><h2>Noor</h2><button onclick="vote('Noor',this)">Vote</button></div>
-<div class="nominee"><h2>BESSAN.ISAIL60</h2><button onclick="vote('BESSAN.ISAIL60',this)">Vote</button></div>
-<div class="nominee"><h2>Malak</h2><button onclick="vote('Malak',this)">Vote</button></div>
+  <div class="nominee"><img src="images/tween.jpeg"><div class="info"><h2>Tween</h2><button onclick="openVote('Tween',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/yamen.jpeg"><div class="info"><h2>Yamen</h2><button onclick="openVote('Yamen',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/amar.jpeg"><div class="info"><h2>Amar</h2><button onclick="openVote('Amar',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/raghad.jpeg"><div class="info"><h2>Raghad</h2><button onclick="openVote('Raghad',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/barhom.jpeg"><div class="info"><h2>Barhom</h2><button onclick="openVote('Barhom',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/romoch.jpeg"><div class="info"><h2>Romoch</h2><button onclick="openVote('Romoch',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/lamis.jpeg"><div class="info"><h2>Lamis</h2><button onclick="openVote('Lamis',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/noor.jpeg"><div class="info"><h2>Noor</h2><button onclick="openVote('Noor',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/bessan.jpeg"><div class="info"><h2>BESSAN.ISAIL60</h2><button onclick="openVote('BESSAN.ISAIL60',this)">Vote</button></div></div>
+  <div class="nominee"><img src="images/malak.jpeg"><div class="info"><h2>Malak</h2><button onclick="openVote('Malak',this)">Vote</button></div></div>
 
 </div>
 
-<footer>© 2026 Golden Fan Awards</footer>
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <img id="pImg" class="popup-img">
+    <h3 id="pName"></h3>
+    <p>هل أنت جاهز للتصويت؟</p>
+    <button class="confirm" onclick="confirmVote()">Vote</button>
+    <button class="cancel" onclick="closePopup()">Cancel</button>
+  </div>
+</div>
 
-<script>
-function vote(name,btn){
-  if(localStorage.getItem('voted_bessan')){
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, setDoc, increment } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBN_UM5pj9OZI3npdPkA5N8YihEEcmkaR8",
+  authDomain: "golden-fan-awards.firebaseapp.com",
+  projectId: "golden-fan-awards",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+let currentName = '';
+let voted = localStorage.getItem('voted_bessan');
+
+window.openVote = function(name,btn){
+  if(voted){
     alert('لقد قمت بالتصويت مسبقاً');
     return;
   }
+  currentName = name;
+  document.getElementById('pName').innerText = name;
+  document.getElementById('pImg').src = btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
+}
+
+window.closePopup = function(){
+  document.getElementById('popup').style.display='none';
+}
+
+window.confirmVote = async function(){
+  const ref = doc(db,"votes_bessan",currentName);
+
+  await setDoc(ref,{
+    name: currentName,
+    count: increment(1)
+  },{ merge:true });
 
   localStorage.setItem('voted_bessan','yes');
-  alert('شكراً لتصويتك لـ ' + name + ' 💛');
-
-  document.querySelectorAll('button').forEach(b=>{
-    b.disabled = true;
-  });
+  alert('تم التصويت بنجاح 💛');
+  closePopup();
 }
 </script>
 
