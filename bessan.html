@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>bessan – Favorite Fan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Tajawal',sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(218,190,120,.15), transparent 45%),
+    linear-gradient(160deg,#120b1f,#241437,#120b1f);
+  color:#f5f3ff;
+}
+
+header{
+  text-align:center;
+  padding:60px 20px 30px;
+}
+
+header h1{
+  font-family:'Cinzel',serif;
+  font-size:36px;
+  letter-spacing:2px;
+  color:#e6d8a8;
+}
+
+header p{
+  margin-top:12px;
+  font-size:20px;
+  color:#b38cff;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.nominee{
+  background:#1a1028;
+  border-radius:22px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition:.4s;
+}
+
+.nominee:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 30px rgba(230,216,168,.4);
+}
+
+.nominee h2{
+  font-family:'Cinzel',serif;
+  font-size:18px;
+  color:#e6d8a8;
+  margin-bottom:18px;
+}
+
+.nominee button{
+  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
+  border:none;
+  color:#120b1f;
+  padding:10px 28px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.nominee button:hover{
+  transform:scale(1.1);
+  box-shadow:0 8px 25px rgba(230,216,168,.6);
+}
+
+.nominee button:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+  box-shadow:none;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>BESSAN FAVORITE FAN</h1>
+  <p>Vote / تصويت للمعجب المفضل</p>
+</header>
+
+<div class="container">
+
+<div class="nominee"><h2>Tween</h2><button onclick="vote('Tween',this)">Vote</button></div>
+<div class="nominee"><h2>Yamen</h2><button onclick="vote('Yamen',this)">Vote</button></div>
+<div class="nominee"><h2>Amar</h2><button onclick="vote('Amar',this)">Vote</button></div>
+<div class="nominee"><h2>Raghad</h2><button onclick="vote('Raghad',this)">Vote</button></div>
+<div class="nominee"><h2>Barhom</h2><button onclick="vote('Barhom',this)">Vote</button></div>
+<div class="nominee"><h2>Romoch</h2><button onclick="vote('Romoch',this)">Vote</button></div>
+<div class="nominee"><h2>Lamis</h2><button onclick="vote('Lamis',this)">Vote</button></div>
+<div class="nominee"><h2>Noor</h2><button onclick="vote('Noor',this)">Vote</button></div>
+<div class="nominee"><h2>BESSAN.ISAIL60</h2><button onclick="vote('BESSAN.ISAIL60',this)">Vote</button></div>
+<div class="nominee"><h2>Malak</h2><button onclick="vote('Malak',this)">Vote</button></div>
+
+</div>
+
+<footer>© 2026 Golden Fan Awards</footer>
+
+<script>
+function vote(name,btn){
+  if(localStorage.getItem('voted_bessan')){
+    alert('لقد قمت بالتصويت مسبقاً');
+    return;
+  }
+
+  localStorage.setItem('voted_bessan','yes');
+  alert('شكراً لتصويتك لـ ' + name + ' 💛');
+
+  document.querySelectorAll('button').forEach(b=>{
+    b.disabled = true;
+  });
+}
+</script>
+
+</body>
+</html>
