@@ -33,6 +33,7 @@ header p{
   margin-top:12px;
   font-size:20px;
   color:#b38cff;
+  text-shadow:0 0 14px rgba(179,140,255,.6);
 }
 
 .container{
@@ -48,7 +49,14 @@ header p{
   background:#1a1028;
   border-radius:22px;
   overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.6),
+    inset 0 0 0 2px rgba(230,216,168,.35);
+  transition:.4s;
+}
+
+.nominee:hover{
+  transform:translateY(-6px);
 }
 
 .nominee img{
@@ -79,33 +87,49 @@ header p{
   cursor:pointer;
 }
 
-/* ===== Popup ===== */
-.modal{
+footer{
+  text-align:center;
+  padding:30px 10px;
+  opacity:.6;
+  font-size:14px;
+}
+
+/* ===== POPUP ===== */
+.popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
+  background:rgba(0,0,0,.7);
   display:none;
   align-items:center;
   justify-content:center;
   z-index:999;
 }
-
-.modal-box{
+.popup-box{
   background:#1a1028;
+  padding:30px;
   border-radius:20px;
-  padding:30px 25px;
   text-align:center;
-  box-shadow:0 0 40px rgba(230,216,168,.4);
-  max-width:320px;
+  width:90%;
+  max-width:360px;
 }
-
-.modal-box p{
-  margin-bottom:20px;
-  font-size:18px;
+.popup-box button{
+  margin:10px;
+  padding:10px 22px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
 }
+.confirm{background:#e6d8a8;color:#120b1f;}
+.cancel{background:#555;color:#fff;}
 
-.modal-box button{
-  margin:6px;
+/* admin */
+.admin{
+  position:fixed;
+  bottom:10px;
+  left:10px;
+  opacity:.15;
+  font-size:12px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -119,76 +143,68 @@ header p{
 
 <div class="container">
 
-  <div class="nominee">
-    <img src="image1.jpeg">
-    <div class="info">
-      <h2>Lana</h2>
-      <button onclick="openVote('Lana')">Vote / تصويت</button>
-    </div>
-  </div>
+  <!-- ⬇⬇⬇ لم ألمس أي اسم أو صورة ⬇⬇⬇ -->
 
-  <div class="nominee">
-    <img src="image2.jpeg">
-    <div class="info">
-      <h2>Linda</h2>
-      <button onclick="openVote('Linda')">Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="image3.jpeg">
-    <div class="info">
-      <h2>Namarg</h2>
-      <button onclick="openVote('Namarg')">Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="image4.jpeg">
-    <div class="info">
-      <h2>Buchra</h2>
-      <button onclick="openVote('Buchra')">Vote / تصويت</button>
-    </div>
-  </div>
+  <div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="vote('Lana')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="vote('Linda')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="vote('Namarg')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button onclick="vote('Buchra')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button onclick="vote('Maryam')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button onclick="vote('Hiba')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button onclick="vote('Asma')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="vote('Louay')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="vote('Meera')">Vote / تصويت</button></div></div>
+  <div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="vote('Zahra')">Vote / تصويت</button></div></div>
 
 </div>
 
-<footer style="text-align:center;padding:30px;opacity:.6">
-© 2026 Golden Fan Awards
-</footer>
+<footer>© 2026 Golden Fan Awards</footer>
 
-<!-- Popup -->
-<div class="modal" id="voteModal">
-  <div class="modal-box">
-    <p id="voteText">هل أنتِ جاهزة للتصويت؟</p>
-    <button onclick="confirmVote()">تصويت</button>
-    <button onclick="closeModal()">إلغاء</button>
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <p id="popupText"></p>
+    <button class="confirm" onclick="confirmVote()">تأكيد</button>
+    <button class="cancel" onclick="closePopup()">إلغاء</button>
   </div>
 </div>
+
+<div class="admin" onclick="admin()">admin</div>
 
 <script>
-let selectedName = null;
-const voteKey = "noor_voted";
+let selected = null;
 
-function openVote(name){
-  if(localStorage.getItem(voteKey)){
-    alert("💜 شكرًا، لقد قمتِ بالتصويت مسبقًا");
+function vote(name){
+  if(localStorage.getItem("noor_voted")){
+    alert("لقد قمت بالتصويت مسبقًا");
     return;
   }
-  selectedName = name;
-  document.getElementById("voteText").innerText =
-    "✨ هل أنتِ جاهزة للتصويت لـ " + name + " ؟";
-  document.getElementById("voteModal").style.display = "flex";
+  selected = name;
+  document.getElementById("popupText").innerText = "هل أنت جاهز لتصويتك لـ " + name + " ؟";
+  document.getElementById("popup").style.display="flex";
 }
 
 function confirmVote(){
-  localStorage.setItem(voteKey, selectedName);
-  closeModal();
-  alert("💜 شكرًا لتصويتك");
+  let votes = JSON.parse(localStorage.getItem("noor_votes") || "{}");
+  votes[selected] = (votes[selected] || 0) + 1;
+  localStorage.setItem("noor_votes", JSON.stringify(votes));
+  localStorage.setItem("noor_voted","yes");
+  document.getElementById("popupText").innerText="شكرًا لتصويتك 💜";
+  setTimeout(closePopup,1500);
 }
 
-function closeModal(){
-  document.getElementById("voteModal").style.display = "none";
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+
+function admin(){
+  let p = prompt("أدخل الرمز");
+  if(p==="2009"){
+    let v = JSON.parse(localStorage.getItem("noor_votes") || "{}");
+    let out="";
+    for(let k in v){ out+=k+" : "+v[k]+"\\n"; }
+    alert(out || "لا أصوات بعد");
+  }
 }
 </script>
 
