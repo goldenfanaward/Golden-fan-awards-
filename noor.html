@@ -75,10 +75,10 @@ header p{margin-top:12px;font-size:20px;color:#b38cff;}
   </div>
 </div>
 
-<!-- Firebase -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, doc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, doc, setDoc, increment } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBN_UM5pj9OZI3npdPkA5N8YihEEcmkaR8",
@@ -109,7 +109,12 @@ window.closePopup = function(){
 
 window.confirmVote = async function(){
   const ref = doc(db,"votes_noor",currentName);
-  await updateDoc(ref,{count: increment(1)});
+
+  await setDoc(ref,{
+    name: currentName,
+    count: increment(1)
+  },{ merge:true });
+
   localStorage.setItem('voted_noor','yes');
   alert('تم التصويت بنجاح 💛');
   closePopup();
