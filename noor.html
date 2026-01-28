@@ -49,12 +49,6 @@ header p{
   border-radius:22px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition:.4s;
-}
-
-.nominee:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 0 2px #e6d8a8;
 }
 
 .nominee img{
@@ -78,71 +72,71 @@ header p{
 .info button{
   background:linear-gradient(135deg,#e6d8a8,#bfa76a);
   border:none;
+  color:#120b1f;
   padding:10px 26px;
   border-radius:30px;
+  font-size:14px;
   cursor:pointer;
 }
 
-/* ===== Modal ===== */
-
-.modal{
+/* ===== POPUP ===== */
+.popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,.75);
   display:none;
   align-items:center;
   justify-content:center;
   z-index:999;
 }
 
-.modal-content{
+.popup-box{
   background:#1a1028;
-  border-radius:26px;
+  border-radius:22px;
   padding:30px;
   text-align:center;
   width:320px;
-  box-shadow:0 0 40px rgba(230,216,168,.6);
-  animation:zoom .4s ease;
+  box-shadow:0 0 40px rgba(230,216,168,.5);
 }
 
-@keyframes zoom{
-  from{transform:scale(.7);opacity:0}
-  to{transform:scale(1);opacity:1}
-}
-
-.modal-content img{
-  width:100%;
-  aspect-ratio:1/1;
+.popup-img{
+  width:160px;
+  height:160px;
+  border-radius:12px;
   object-fit:cover;
-  border-radius:14px;
-  margin-bottom:15px;
+  border:4px solid #e6d8a8;
+  margin-bottom:16px;
 }
 
-.modal h3{
-  font-family:'Cinzel',serif;
+.popup h3{
   color:#e6d8a8;
-  margin:10px 0;
+  font-family:'Cinzel',serif;
+  margin-bottom:10px;
 }
 
-.modal p{
+.popup p{
   color:#e6d8a8;
   margin-bottom:20px;
 }
 
-.modal button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a);
+.popup button{
+  margin:8px;
+  padding:10px 24px;
+  border-radius:25px;
   border:none;
-  padding:10px 30px;
-  border-radius:30px;
   cursor:pointer;
+  font-weight:600;
 }
 
-.close{
-  margin-top:15px;
-  background:none;
-  color:#aaa;
-  border:none;
-  cursor:pointer;
+/* 🔥 المطلوب */
+.confirm{
+  background:#e6d8a8;
+  color:#000;
+}
+
+.cancel{
+  background:#c9b37a;
+  color:#000;
 }
 
 footer{
@@ -162,79 +156,59 @@ footer{
 
 <div class="container">
 
-  <div class="nominee">
-    <img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg">
-    <div class="info">
-      <h2>Lana</h2>
-      <button onclick="openVote(this)">Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg">
-    <div class="info">
-      <h2>Linda</h2>
-      <button onclick="openVote(this)">Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg">
-    <div class="info">
-      <h2>Namarg</h2>
-      <button onclick="openVote(this)">Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg">
-    <div class="info">
-      <h2>Buchra</h2>
-      <button onclick="openVote(this)">Vote / تصويت</button>
-    </div>
-  </div>
+<div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="openVote('Lana',this)">Vote</button></div></div>
+<div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="openVote('Linda',this)">Vote</button></div></div>
+<div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="openVote('Namarg',this)">Vote</button></div></div>
+<div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button onclick="openVote('Buchra',this)">Vote</button></div></div>
+<div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button onclick="openVote('Maryam',this)">Vote</button></div></div>
+<div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button onclick="openVote('Hiba',this)">Vote</button></div></div>
+<div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button onclick="openVote('Asma',this)">Vote</button></div></div>
+<div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="openVote('Louay',this)">Vote</button></div></div>
+<div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="openVote('Meera',this)">Vote</button></div></div>
+<div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="openVote('Zahra',this)">Vote</button></div></div>
 
 </div>
 
 <footer>© 2026 Golden Fan Awards</footer>
 
-<!-- Modal -->
-<div class="modal" id="voteModal">
-  <div class="modal-content">
-    <img id="modalImg">
-    <h3 id="modalName"></h3>
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <img id="pImg" class="popup-img">
+    <h3 id="pName"></h3>
     <p>
       هل أنت جاهز للتصويت؟<br>
       Are you ready to vote?
     </p>
-    <button onclick="confirmVote()">تأكيد التصويت</button><br>
-    <button class="close" onclick="closeModal()">إغلاق</button>
+    <button class="confirm" onclick="confirmVote()">تأكيد التصويت</button>
+    <button class="cancel" onclick="closePopup()">إغلاق</button>
   </div>
 </div>
 
 <script>
-let selectedName = "";
+let currentName='';
 
-function openVote(btn){
-  if(localStorage.getItem("voted_noor")){
-    alert("لقد قمت بالتصويت مسبقاً في هذه الفئة");
+function openVote(name,btn){
+  if(localStorage.getItem('voted_noor')){
+    alert('لقد قمت بالتصويت مسبقاً');
     return;
   }
-  const card = btn.closest(".nominee");
-  selectedName = card.querySelector("h2").innerText;
-  document.getElementById("modalImg").src = card.querySelector("img").src;
-  document.getElementById("modalName").innerText = selectedName;
-  document.getElementById("voteModal").style.display="flex";
+  currentName=name;
+  document.getElementById('pName').innerText=name;
+  document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
 }
 
-function closeModal(){
-  document.getElementById("voteModal").style.display="none";
+function closePopup(){
+  document.getElementById('popup').style.display='none';
 }
 
 function confirmVote(){
-  localStorage.setItem("voted_noor","yes");
-  alert("شكراً لتصويتك 💛");
-  closeModal();
+  let key='noor_'+currentName;
+  localStorage.setItem(key,(+localStorage.getItem(key)||0)+1);
+  localStorage.setItem('voted_noor','yes');
+  alert('شكراً لتصويتك 💛');
+  closePopup();
 }
 </script>
 
