@@ -35,7 +35,12 @@ header p{margin-top:12px;font-size:20px;color:#b38cff;}
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
   transition:.4s;
-  position:relative;
+}
+
+.nominee img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
 }
 
 .nominee.selected{animation:selectGlow .7s ease;}
@@ -46,12 +51,17 @@ header p{margin-top:12px;font-size:20px;color:#b38cff;}
 }
 
 .info{padding:18px;text-align:center;}
-.info h2{font-family:'Cinzel',serif;font-size:18px;color:#e6d8a8;margin-bottom:8px;}
+.info h2{
+  font-family:'Cinzel',serif;
+  font-size:18px;
+  color:#e6d8a8;
+  margin-bottom:6px;
+}
 
-.vote-count{
-  color:#bfa76a;
-  margin-bottom:10px;
+.votes{
   font-size:14px;
+  margin-bottom:10px;
+  color:#f5e6b3;
 }
 
 .info button{
@@ -73,6 +83,7 @@ header p{margin-top:12px;font-size:20px;color:#b38cff;}
   justify-content:center;
   z-index:999;
 }
+
 .popup-box{
   background:#1a1028;
   border-radius:22px;
@@ -81,25 +92,35 @@ header p{margin-top:12px;font-size:20px;color:#b38cff;}
   width:320px;
   box-shadow:0 0 40px rgba(230,216,168,.5);
 }
+
 .popup-img{
-  width:160px;height:160px;
+  width:160px;
+  height:160px;
   border-radius:12px;
   object-fit:cover;
   border:4px solid #e6d8a8;
   margin-bottom:16px;
 }
+
 .popup h3{color:#e6d8a8;font-family:'Cinzel',serif;}
 .popup p{color:#e6d8a8;margin-bottom:20px;}
 
-.confirm,.cancel{
+.confirm{
+  background:#e6d8a8;
+  color:#120b1f;
   border:none;
   padding:10px 20px;
   border-radius:25px;
   cursor:pointer;
-  margin:5px;
 }
-.confirm{background:#e6d8a8;color:#120b1f;}
-.cancel{background:#444;color:#fff;}
+.cancel{
+  background:#444;
+  color:#fff;
+  border:none;
+  padding:10px 20px;
+  border-radius:25px;
+  cursor:pointer;
+}
 
 footer{text-align:center;padding:30px;opacity:.6;cursor:pointer;}
 </style>
@@ -112,9 +133,101 @@ footer{text-align:center;padding:30px;opacity:.6;cursor:pointer;}
   <p>Vote / تصويت للمعجب المفضل</p>
 </header>
 
-<div class="container" id="list"></div>
+<div class="container">
 
-<footer onclick="admin()">© 2026 Golden Fan Awards</footer>
+<div class="nominee">
+<img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg">
+<div class="info">
+<h2>Lana</h2>
+<div class="votes" id="votes-Lana">Votes: 0</div>
+<button onclick="openVote('Lana',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg">
+<div class="info">
+<h2>Linda</h2>
+<div class="votes" id="votes-Linda">Votes: 0</div>
+<button onclick="openVote('Linda',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg">
+<div class="info">
+<h2>Namarg</h2>
+<div class="votes" id="votes-Namarg">Votes: 0</div>
+<button onclick="openVote('Namarg',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg">
+<div class="info">
+<h2>Buchra</h2>
+<div class="votes" id="votes-Buchra">Votes: 0</div>
+<button onclick="openVote('Buchra',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg">
+<div class="info">
+<h2>Maryam</h2>
+<div class="votes" id="votes-Maryam">Votes: 0</div>
+<button onclick="openVote('Maryam',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg">
+<div class="info">
+<h2>Hiba</h2>
+<div class="votes" id="votes-Hiba">Votes: 0</div>
+<button onclick="openVote('Hiba',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg">
+<div class="info">
+<h2>Asma</h2>
+<div class="votes" id="votes-Asma">Votes: 0</div>
+<button onclick="openVote('Asma',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg">
+<div class="info">
+<h2>Louay</h2>
+<div class="votes" id="votes-Louay">Votes: 0</div>
+<button onclick="openVote('Louay',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg">
+<div class="info">
+<h2>Meera</h2>
+<div class="votes" id="votes-Meera">Votes: 0</div>
+<button onclick="openVote('Meera',this)">Vote</button>
+</div>
+</div>
+
+<div class="nominee">
+<img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg">
+<div class="info">
+<h2>Zahra</h2>
+<div class="votes" id="votes-Zahra">Votes: 0</div>
+<button onclick="openVote('Zahra',this)">Vote</button>
+</div>
+</div>
+
+</div>
+
+<footer>© 2026 Golden Fan Awards</footer>
 
 <div class="popup" id="popup">
   <div class="popup-box">
@@ -126,84 +239,46 @@ footer{text-align:center;padding:30px;opacity:.6;cursor:pointer;}
   </div>
 </div>
 
-<!-- Firebase -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } 
-from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+<script>
+let currentName='';
+let currentBtn=null;
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBN_UM5pj9OZI3npdPkA5N8YihEEcmkaR8",
-  authDomain: "golden-fan-awards.firebaseapp.com",
-  projectId: "golden-fan-awards",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const nominees = [
-"Lana","Linda","Namarg","Buchra","Maryam",
-"Hiba","Asma","Louay","Meera","Zahra"
-];
-
-const list = document.getElementById("list");
-
-let currentName = "";
-
-async function loadNominees(){
-  list.innerHTML="";
-  for(const n of nominees){
-    const ref = doc(db,"votes",n);
-    const snap = await getDoc(ref);
-    if(!snap.exists()) await setDoc(ref,{count:0});
-    const count = snap.exists() ? snap.data().count : 0;
-
-    list.innerHTML += `
-      <div class="nominee">
-        <div class="info">
-          <h2>${n}</h2>
-          <div class="vote-count">Votes: ${count}</div>
-          <button onclick="openVote('${n}',this)">Vote</button>
-        </div>
-      </div>`;
-  }
+function loadVotes(){
+  document.querySelectorAll('.votes').forEach(v=>{
+    const name=v.id.replace('votes-','');
+    v.innerText='Votes: '+(localStorage.getItem('noor_'+name)||0);
+  });
 }
-loadNominees();
+loadVotes();
 
-window.openVote = (name,btn)=>{
-  if(localStorage.getItem("voted_noor")){
-    alert("لقد قمت بالتصويت مسبقاً");
+function openVote(name,btn){
+  if(localStorage.getItem('voted_noor')){
+    alert('صوّتت قبل');
     return;
   }
   currentName=name;
-  btn.closest(".nominee").classList.add("selected");
-  setTimeout(()=>btn.closest(".nominee").classList.remove("selected"),700);
-  document.getElementById("pName").innerText=name;
-  document.getElementById("popup").style.display="flex";
-};
+  currentBtn=btn;
+  btn.closest('.nominee').classList.add('selected');
+  setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
+  document.getElementById('pName').innerText=name;
+  document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
+}
 
-window.closePopup = ()=>document.getElementById("popup").style.display="none";
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
 
-window.confirmVote = async ()=>{
-  const ref = doc(db,"votes",currentName);
-  await updateDoc(ref,{count:increment(1)});
-  localStorage.setItem("voted_noor","yes");
-  alert("تم التصويت بنجاح 💛");
+function confirmVote(){
+  const key='noor_'+currentName;
+  let count=parseInt(localStorage.getItem(key)||0);
+  localStorage.setItem(key,count+1);
+  localStorage.setItem('voted_noor','yes');
+  document.getElementById('votes-'+currentName).innerText='Votes: '+(count+1);
+  alert('تم التصويت 💛');
   closePopup();
-  loadNominees();
-};
-
-window.admin = async ()=>{
-  const pass = prompt("كلمة السر");
-  if(pass!=="2009") return;
-  let r="";
-  for(const n of nominees){
-    const s = await getDoc(doc(db,"votes",n));
-    r+=`${n} : ${s.data().count}\n`;
-  }
-  alert(r);
-};
+}
 </script>
 
 </body>
-</html>ء
+</html>
