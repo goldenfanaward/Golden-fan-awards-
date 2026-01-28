@@ -101,6 +101,43 @@ footer{
   opacity:.6;
   font-size:14px;
 }
+
+/* ===== إضافات التصويت ===== */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.modal-box{
+  background:#1a1028;
+  border-radius:20px;
+  padding:30px 25px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(230,216,168,.4);
+  max-width:320px;
+}
+
+.modal-box p{
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.modal-box button{
+  margin:6px;
+}
+
+.admin-count{
+  margin-top:8px;
+  font-size:13px;
+  color:#b38cff;
+  display:none;
+}
 </style>
 </head>
 
@@ -113,91 +150,69 @@ footer{
 
 <div class="container">
 
-  <div class="nominee">
-    <img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg">
-    <div class="info">
-      <h2>Lana</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg">
-    <div class="info">
-      <h2>Linda</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg">
-    <div class="info">
-      <h2>Namarg</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg">
-    <div class="info">
-      <h2>Buchra</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg">
-    <div class="info">
-      <h2>Maryam</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg">
-    <div class="info">
-      <h2>Hiba</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg">
-    <div class="info">
-      <h2>Asma</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg">
-    <div class="info">
-      <h2>Louay</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg">
-    <div class="info">
-      <h2>Meera</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg">
-    <div class="info">
-      <h2>Zahra</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
+  <div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
+  <div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button>Vote / تصويت</button><div class="admin-count"></div></div></div>
 
 </div>
 
-<footer>
-  © 2026 Golden Fan Awards
-</footer>
+<footer>© 2026 Golden Fan Awards</footer>
+
+<!-- Popup -->
+<div class="modal" id="voteModal">
+  <div class="modal-box">
+    <p>✨ هل أنت جاهز للتصويت؟</p>
+    <button id="confirmVote">تصويت</button>
+    <button onclick="closeModal()">إلغاء</button>
+  </div>
+</div>
+
+<script>
+const categoryKey = "noor_vote_done";
+let selectedIndex = null;
+const adminMode = location.hash === "#2009";
+
+const buttons = document.querySelectorAll(".info button");
+const counts = document.querySelectorAll(".admin-count");
+
+buttons.forEach((btn, i)=>{
+  btn.onclick = ()=>{
+    if(localStorage.getItem(categoryKey)) {
+      alert("💜 شكرًا، لقد قمت بالتصويت مسبقًا");
+      return;
+    }
+    selectedIndex = i;
+    document.getElementById("voteModal").style.display="flex";
+  };
+});
+
+document.getElementById("confirmVote").onclick = ()=>{
+  const key = "noor_count_" + selectedIndex;
+  localStorage.setItem(categoryKey, "yes");
+  localStorage.setItem(key, (parseInt(localStorage.getItem(key))||0)+1);
+  closeModal();
+  alert("💜 شكرًا لمشاركتك في التصويت");
+};
+
+function closeModal(){
+  document.getElementById("voteModal").style.display="none";
+}
+
+if(adminMode){
+  counts.forEach((c,i)=>{
+    const key="noor_count_"+i;
+    c.innerText="Votes: "+(localStorage.getItem(key)||0);
+    c.style.display="block";
+  });
+}
+</script>
 
 </body>
 </html>
