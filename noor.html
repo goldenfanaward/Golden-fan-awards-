@@ -49,6 +49,12 @@ header p{
   border-radius:22px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition:.4s;
+}
+
+.nominee:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 0 2px #e6d8a8;
 }
 
 .nominee img{
@@ -64,70 +70,85 @@ header p{
 
 .info h2{
   font-family:'Cinzel',serif;
+  font-size:18px;
   color:#e6d8a8;
+  margin-bottom:12px;
 }
 
 .info button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a,#000);
+  background:linear-gradient(135deg,#e6d8a8,#bfa76a);
   border:none;
-  color:#120b1f;
   padding:10px 26px;
   border-radius:30px;
   cursor:pointer;
 }
 
-/* ===== POPUP ===== */
-.popup{
+/* ===== Modal ===== */
+
+.modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.8);
   display:none;
   align-items:center;
   justify-content:center;
   z-index:999;
 }
 
-.popup-box{
+.modal-content{
   background:#1a1028;
-  padding:30px;
   border-radius:26px;
+  padding:30px;
   text-align:center;
-  box-shadow:0 0 60px rgba(230,216,168,.6);
-  animation:pop .4s ease;
+  width:320px;
+  box-shadow:0 0 40px rgba(230,216,168,.6);
+  animation:zoom .4s ease;
 }
 
-@keyframes pop{
+@keyframes zoom{
   from{transform:scale(.7);opacity:0}
   to{transform:scale(1);opacity:1}
 }
 
-.popup-img{
-  width:160px;
-  height:160px;
-  border-radius:14px;
+.modal-content img{
+  width:100%;
+  aspect-ratio:1/1;
   object-fit:cover;
-  border:4px solid #e6d8a8;
-  margin-bottom:16px;
+  border-radius:14px;
+  margin-bottom:15px;
 }
 
-.popup h3{
+.modal h3{
   font-family:'Cinzel',serif;
   color:#e6d8a8;
-  margin-bottom:10px;
+  margin:10px 0;
 }
 
-.popup p{
-  color:#f3e9c6;
-  font-size:15px;
+.modal p{
+  color:#e6d8a8;
   margin-bottom:20px;
 }
 
-.popup button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a,#000);
+.modal button{
+  background:linear-gradient(135deg,#e6d8a8,#bfa76a);
   border:none;
-  padding:10px 28px;
+  padding:10px 30px;
   border-radius:30px;
   cursor:pointer;
+}
+
+.close{
+  margin-top:15px;
+  background:none;
+  color:#aaa;
+  border:none;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
 }
 </style>
 </head>
@@ -141,49 +162,79 @@ header p{
 
 <div class="container">
 
-<div class="nominee">
-  <img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg">
-  <div class="info">
-    <h2>Lana</h2>
-    <button onclick="openVote('Lana', this)">Vote</button>
+  <div class="nominee">
+    <img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg">
+    <div class="info">
+      <h2>Lana</h2>
+      <button onclick="openVote(this)">Vote / تصويت</button>
+    </div>
   </div>
+
+  <div class="nominee">
+    <img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg">
+    <div class="info">
+      <h2>Linda</h2>
+      <button onclick="openVote(this)">Vote / تصويت</button>
+    </div>
+  </div>
+
+  <div class="nominee">
+    <img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg">
+    <div class="info">
+      <h2>Namarg</h2>
+      <button onclick="openVote(this)">Vote / تصويت</button>
+    </div>
+  </div>
+
+  <div class="nominee">
+    <img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg">
+    <div class="info">
+      <h2>Buchra</h2>
+      <button onclick="openVote(this)">Vote / تصويت</button>
+    </div>
+  </div>
+
 </div>
 
-<!-- كرري نفس السطر لباقي المترشحين بدون تغيير -->
-</div>
+<footer>© 2026 Golden Fan Awards</footer>
 
-<div class="popup" id="popup">
-  <div class="popup-box">
-    <img id="popupImg" class="popup-img">
-    <h3 id="popupName"></h3>
+<!-- Modal -->
+<div class="modal" id="voteModal">
+  <div class="modal-content">
+    <img id="modalImg">
+    <h3 id="modalName"></h3>
     <p>
-      Your choice reflects your admiration and support<br>
-      اختيارك يعكس تقديرك ودعمك
+      هل أنت جاهز للتصويت؟<br>
+      Are you ready to vote?
     </p>
-    <button onclick="confirmVote()">Confirm Vote</button>
+    <button onclick="confirmVote()">تأكيد التصويت</button><br>
+    <button class="close" onclick="closeModal()">إغلاق</button>
   </div>
 </div>
 
 <script>
-let selectedName="";
-let selectedBtn=null;
+let selectedName = "";
 
-function openVote(name, btn){
-  if(localStorage.getItem("voted_noor")) return;
-  selectedName=name;
-  selectedBtn=btn;
-  document.getElementById("popupName").innerText=name;
-  document.getElementById("popupImg").src=
-    btn.closest(".nominee").querySelector("img").src;
-  document.getElementById("popup").style.display="flex";
+function openVote(btn){
+  if(localStorage.getItem("voted_noor")){
+    alert("لقد قمت بالتصويت مسبقاً في هذه الفئة");
+    return;
+  }
+  const card = btn.closest(".nominee");
+  selectedName = card.querySelector("h2").innerText;
+  document.getElementById("modalImg").src = card.querySelector("img").src;
+  document.getElementById("modalName").innerText = selectedName;
+  document.getElementById("voteModal").style.display="flex";
+}
+
+function closeModal(){
+  document.getElementById("voteModal").style.display="none";
 }
 
 function confirmVote(){
-  let key="noor_"+selectedName;
-  localStorage.setItem(key,(+localStorage.getItem(key)||0)+1);
   localStorage.setItem("voted_noor","yes");
-  document.getElementById("popup").innerHTML=
-  "<div class='popup-box'><h3>Thank You ✨</h3><p>شكراً لمشاركتك الراقية</p></div>";
+  alert("شكراً لتصويتك 💛");
+  closeModal();
 }
 </script>
 
