@@ -44,17 +44,29 @@ header p{
   gap:30px;
 }
 
+/* ===== NOMINEE CARD ===== */
 .nominee{
   background:#1a1028;
   border-radius:22px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition:transform .4s ease, box-shadow .4s ease;
 }
 
 .nominee img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
+}
+
+.nominee.selected{
+  animation:selectGlow .7s ease;
+}
+
+@keyframes selectGlow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
 }
 
 .info{
@@ -69,14 +81,44 @@ header p{
   margin-bottom:12px;
 }
 
+/* ===== VOTE BUTTON ===== */
 .info button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a);
+  position:relative;
+  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
   border:none;
   color:#120b1f;
   padding:10px 26px;
   border-radius:30px;
   font-size:14px;
+  font-weight:600;
   cursor:pointer;
+  overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.info button::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+  transform:translateX(-100%);
+}
+
+.info button:hover::before{
+  animation:shine 1.2s ease;
+}
+
+@keyframes shine{
+  to{transform:translateX(100%);}
+}
+
+.info button:hover{
+  transform:scale(1.08);
+  box-shadow:0 8px 25px rgba(230,216,168,.6);
+}
+
+.info button:active{
+  transform:scale(0.95);
 }
 
 /* ===== POPUP ===== */
@@ -117,32 +159,25 @@ header p{
 .popup p{
   color:#e6d8a8;
   margin-bottom:20px;
+  font-size:15px;
 }
 
 .popup button{
   margin:8px;
-  padding:10px 24px;
+  padding:10px 20px;
   border-radius:25px;
   border:none;
   cursor:pointer;
-  font-weight:600;
 }
 
-/* 🔥 المطلوب */
-.confirm{
-  background:#e6d8a8;
-  color:#000;
-}
-
-.cancel{
-  background:#c9b37a;
-  color:#000;
-}
+.confirm{background:#e6d8a8;color:#120b1f;}
+.cancel{background:#444;color:#fff;}
 
 footer{
   text-align:center;
   padding:30px;
   opacity:.6;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -169,31 +204,33 @@ footer{
 
 </div>
 
-<footer>© 2026 Golden Fan Awards</footer>
+<footer onclick="admin()">© 2026 Golden Fan Awards</footer>
 
-<!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
     <img id="pImg" class="popup-img">
     <h3 id="pName"></h3>
-    <p>
-      هل أنت جاهز للتصويت؟<br>
-      Are you ready to vote?
-    </p>
-    <button class="confirm" onclick="confirmVote()">تأكيد التصويت</button>
-    <button class="cancel" onclick="closePopup()">إغلاق</button>
+    <p>هل أنت جاهز للتصويت؟<br>Are you ready to vote?</p>
+    <button class="confirm" onclick="confirmVote()">Vote</button>
+    <button class="cancel" onclick="closePopup()">Cancel</button>
   </div>
 </div>
 
 <script>
 let currentName='';
+let currentBtn=null;
 
 function openVote(name,btn){
   if(localStorage.getItem('voted_noor')){
     alert('لقد قمت بالتصويت مسبقاً');
     return;
   }
+
+  btn.closest('.nominee').classList.add('selected');
+  setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
+
   currentName=name;
+  currentBtn=btn;
   document.getElementById('pName').innerText=name;
   document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
   document.getElementById('popup').style.display='flex';
@@ -209,6 +246,18 @@ function confirmVote(){
   localStorage.setItem('voted_noor','yes');
   alert('شكراً لتصويتك 💛');
   closePopup();
+}
+
+function admin(){
+  let p=prompt('كلمة السر');
+  if(p!=='2009') return;
+  let r='';
+  for(let k in localStorage){
+    if(k.startsWith('noor_')){
+      r+=k.replace('noor_','')+' : '+localStorage[k]+'\n';
+    }
+  }
+  alert(r||'لا يوجد أصوات بعد');
 }
 </script>
 
