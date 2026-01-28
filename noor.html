@@ -17,24 +17,24 @@ body{
   color:#f5f3ff;
 }
 
-/* ====== HEADER ====== */
 header{
   text-align:center;
   padding:60px 20px 30px;
 }
+
 header h1{
   font-family:'Cinzel',serif;
   font-size:36px;
   letter-spacing:2px;
   color:#e6d8a8;
 }
+
 header p{
   margin-top:12px;
   font-size:20px;
   color:#b38cff;
 }
 
-/* ====== GRID ====== */
 .container{
   max-width:1100px;
   margin:auto;
@@ -49,9 +49,7 @@ header p{
   border-radius:22px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
-  transition:.4s;
 }
-.nominee:hover{transform:translateY(-6px);}
 
 .nominee img{
   width:100%;
@@ -63,22 +61,25 @@ header p{
   padding:18px;
   text-align:center;
 }
+
 .info h2{
   font-family:'Cinzel',serif;
   font-size:18px;
   color:#e6d8a8;
   margin-bottom:12px;
 }
+
 .info button{
   background:linear-gradient(135deg,#e6d8a8,#bfa76a,#000);
   border:none;
   color:#120b1f;
   padding:10px 26px;
   border-radius:30px;
+  font-size:14px;
   cursor:pointer;
 }
 
-/* ====== POPUP ====== */
+/* ===== POPUP ===== */
 .popup{
   position:fixed;
   inset:0;
@@ -91,53 +92,51 @@ header p{
 
 .popup-box{
   background:#1a1028;
-  border-radius:26px;
+  border-radius:22px;
   padding:30px;
   text-align:center;
-  width:90%;
-  max-width:380px;
-  box-shadow:0 0 60px rgba(230,216,168,.35);
+  width:320px;
+  box-shadow:0 0 40px rgba(230,216,168,.5);
 }
 
 .popup-img{
-  width:130px;
-  height:130px;
-  border-radius:50%;
+  width:160px;
+  height:160px;
+  border-radius:12px;
   object-fit:cover;
   border:4px solid #e6d8a8;
   margin-bottom:16px;
 }
 
-.popup-name{
-  font-family:'Cinzel',serif;
-  font-size:22px;
+.popup h3{
   color:#e6d8a8;
+  font-family:'Cinzel',serif;
+  margin-bottom:20px;
+}
+
+.popup button{
+  margin:8px;
+  padding:10px 20px;
+  border-radius:25px;
+  border:none;
+  cursor:pointer;
+}
+
+.confirm{background:#e6d8a8;color:#120b1f;}
+.cancel{background:#444;color:#fff;}
+
+/* admin */
+#adminBtn{
+  opacity:.1;
+  text-align:center;
+  cursor:pointer;
   margin-bottom:10px;
 }
 
-.popup-text{
-  font-size:16px;
-  margin-bottom:20px;
-  color:#ddd;
-}
-
-.popup-box button{
-  padding:10px 26px;
-  border-radius:30px;
-  border:none;
-  margin:6px;
-  cursor:pointer;
-}
-.confirm{background:#e6d8a8;color:#120b1f;}
-.cancel{background:#555;color:#fff;}
-
-.admin{
-  position:fixed;
-  bottom:10px;
-  left:10px;
-  opacity:.15;
-  font-size:12px;
-  cursor:pointer;
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
 }
 </style>
 </head>
@@ -151,69 +150,70 @@ header p{
 
 <div class="container">
 
-  <!-- نفس الكود تبعك بدون أي تغيير -->
-  <div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="vote('Lana',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="vote('Linda',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="vote('Namarg',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button onclick="vote('Buchra',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button onclick="vote('Maryam',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button onclick="vote('Hiba',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button onclick="vote('Asma',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="vote('Louay',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="vote('Meera',this)">Vote / تصويت</button></div></div>
-  <div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="vote('Zahra',this)">Vote / تصويت</button></div></div>
+<!-- ما لمست ولا اسم ولا صورة -->
+<div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="openVote('Lana',this)">Vote</button></div></div>
+<div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="openVote('Linda',this)">Vote</button></div></div>
+<div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="openVote('Namarg',this)">Vote</button></div></div>
+<div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button onclick="openVote('Buchra',this)">Vote</button></div></div>
+<div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button onclick="openVote('Maryam',this)">Vote</button></div></div>
+<div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button onclick="openVote('Hiba',this)">Vote</button></div></div>
+<div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button onclick="openVote('Asma',this)">Vote</button></div></div>
+<div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="openVote('Louay',this)">Vote</button></div></div>
+<div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="openVote('Meera',this)">Vote</button></div></div>
+<div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="openVote('Zahra',this)">Vote</button></div></div>
 
 </div>
 
-<footer style="text-align:center;opacity:.6;padding:30px">© 2026 Golden Fan Awards</footer>
+<div id="adminBtn" onclick="admin()">.</div>
+
+<footer>© 2026 Golden Fan Awards</footer>
 
 <!-- POPUP -->
 <div class="popup" id="popup">
   <div class="popup-box">
-    <img id="popupImg" class="popup-img">
-    <div class="popup-name" id="popupName"></div>
-    <div class="popup-text" id="popupText"></div>
-    <button class="confirm" onclick="confirmVote()">تأكيد التصويت</button>
+    <img id="pImg" class="popup-img">
+    <h3 id="pName"></h3>
+    <p>هل أنتِ جاهزة لتصويتك؟</p>
+    <button class="confirm" onclick="confirmVote()">نعم</button>
     <button class="cancel" onclick="closePopup()">إلغاء</button>
   </div>
 </div>
 
-<div class="admin" onclick="admin()">admin</div>
-
 <script>
-let selected=null;
+let currentName='';
+let currentBtn=null;
 
-function vote(name,btn){
-  if(localStorage.getItem("noor_voted")){
-    alert("لقد قمت بالتصويت مسبقًا");
-    return;
-  }
-  selected=name;
-  let img = btn.closest(".nominee").querySelector("img").src;
-  popupImg.src = img;
-  popupName.innerText = name;
-  popupText.innerText = "هل أنت جاهز لتصويتك؟";
-  popup.style.display="flex";
+function openVote(name,btn){
+  if(localStorage.getItem('voted_noor')) return alert('لقد قمتِ بالتصويت مسبقاً');
+  currentName=name;
+  currentBtn=btn;
+  document.getElementById('pName').innerText=name;
+  document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
+}
+
+function closePopup(){
+  document.getElementById('popup').style.display='none';
 }
 
 function confirmVote(){
-  let votes = JSON.parse(localStorage.getItem("noor_votes")||"{}");
-  votes[selected]=(votes[selected]||0)+1;
-  localStorage.setItem("noor_votes",JSON.stringify(votes));
-  localStorage.setItem("noor_voted","yes");
-  popupText.innerText="شكرًا لتصويتك 💜";
-  setTimeout(closePopup,1500);
+  let key='noor_'+currentName;
+  localStorage.setItem(key,(+localStorage.getItem(key)||0)+1);
+  localStorage.setItem('voted_noor','yes');
+  alert('شكراً لتصويتك 💛');
+  closePopup();
 }
 
-function closePopup(){popup.style.display="none";}
-
 function admin(){
-  if(prompt("الرمز")=="2009"){
-    let v=JSON.parse(localStorage.getItem("noor_votes")||"{}");
-    let out="";
-    for(let k in v){out+=k+" : "+v[k]+"\\n";}
-    alert(out||"لا أصوات");
+  let p=prompt('كلمة السر');
+  if(p!=='2009') return;
+  let r='';
+  for(let k in localStorage){
+    if(k.startsWith('noor_')){
+      r+=k.replace('noor_','')+': '+localStorage[k]+'\n';
+    }
   }
+  alert(r||'لا يوجد أصوات بعد');
 }
 </script>
 
