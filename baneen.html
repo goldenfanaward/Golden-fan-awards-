@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Baneen – Favorite Fan</title>
+<title>Baneen favorite fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -17,9 +17,31 @@ body{
   color:#f5f3ff;
 }
 
+/* زر الرجوع */
+.back{
+  position:fixed;
+  top:15px;
+  left:15px;
+  background:rgba(230,216,168,0.6);
+  color:#120b1f;
+  padding:8px 18px;
+  border-radius:22px;
+  text-decoration:none;
+  font-weight:600;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.3s;
+  z-index:1000;
+}
+.back:hover{
+  background:rgba(230,216,168,0.9);
+  box-shadow:0 0 22px rgba(230,216,168,.8);
+  transform:scale(1.05);
+}
+
 header{
   text-align:center;
-  padding:60px 20px 30px;
+  padding:70px 20px 30px;
 }
 header h1{
   font-family:'Cinzel',serif;
@@ -28,9 +50,13 @@ header h1{
   color:#e6d8a8;
 }
 header p{
-  margin-top:12px;
+  margin-top:14px;
   font-size:20px;
-  color:#b38cff;
+  color:#cbb7ff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.6),
+    0 0 14px rgba(255,255,255,.35),
+    0 0 24px rgba(180,150,255,.4);
 }
 
 .container{
@@ -49,21 +75,18 @@ header p{
   box-shadow:0 20px 50px rgba(0,0,0,.6);
   transition:.4s;
 }
-
 .nominee img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
 }
-
 .nominee.selected{
   animation:selectGlow .7s ease;
 }
-
 @keyframes selectGlow{
-  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
-  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
-  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.9);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);}
 }
 
 .info{
@@ -77,10 +100,10 @@ header p{
   margin-bottom:12px;
 }
 .info button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a,#000);
+  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
   border:none;
   color:#120b1f;
-  padding:10px 26px;
+  padding:10px 30px;
   border-radius:30px;
   cursor:pointer;
   font-weight:600;
@@ -123,7 +146,7 @@ header p{
   background:#e6d8a8;
   color:#120b1f;
   border:none;
-  padding:10px 20px;
+  padding:10px 22px;
   border-radius:25px;
   cursor:pointer;
 }
@@ -131,7 +154,7 @@ header p{
   background:#444;
   color:#fff;
   border:none;
-  padding:10px 20px;
+  padding:10px 22px;
   border-radius:25px;
   cursor:pointer;
 }
@@ -147,24 +170,24 @@ footer{
 
 <body>
 
+<a href="index.html" class="back">← Back</a>
+
 <header>
   <h1>BANEEN FAVORITE FAN</h1>
   <p>Vote / تصويت للمعجب المفضل</p>
 </header>
 
 <div class="container">
-
-<div class="nominee"><img src="A790F629-7C59-4A88-87F6-7982A1A4167D.jpeg"><div class="info"><h2>Cidan</h2><button onclick="openVote('Cidan',this)">Vote</button></div></div>
-<div class="nominee"><img src="A6481D0B-23E0-4071-9678-0DF610CF17A2.jpeg"><div class="info"><h2>Fatima</h2><button onclick="openVote('Fatima',this)">Vote</button></div></div>
-<div class="nominee"><img src="A2ADF901-D203-4986-B5DC-A9302C0E9985.jpeg"><div class="info"><h2>Bane_ne20</h2><button onclick="openVote('Bane_ne20',this)">Vote</button></div></div>
-<div class="nominee"><img src="AC3A2C33-CDE4-47D7-818F-2DD7DB2BA5D3.jpeg"><div class="info"><h2>Army</h2><button onclick="openVote('Army',this)">Vote</button></div></div>
-<div class="nominee"><img src="8612183F-98A6-4A6C-A20B-1D62791406E0.jpeg"><div class="info"><h2>Sara</h2><button onclick="openVote('Sara',this)">Vote</button></div></div>
-<div class="nominee"><img src="8D468B13-1579-42A3-BFDD-6BA7D578AAE2.jpeg"><div class="info"><h2>Myangelbaneen</h2><button onclick="openVote('Myangelbaneen',this)">Vote</button></div></div>
-<div class="nominee"><img src="F36C18E0-6054-4664-AF43-37E3494A8E60.jpeg"><div class="info"><h2>Marwa</h2><button onclick="openVote('Marwa',this)">Vote</button></div></div>
-<div class="nominee"><img src="0A0F2703-4D72-4281-A831-0B118E9FBF50.jpeg"><div class="info"><h2>Yassir</h2><button onclick="openVote('Yassir',this)">Vote</button></div></div>
-<div class="nominee"><img src="48E4CB4E-3434-41BD-BF64-2F79F80F410F.jpeg"><div class="info"><h2>Miral</h2><button onclick="openVote('Miral',this)">Vote</button></div></div>
-<div class="nominee"><img src="8180E868-F35A-43FC-986A-9F3B6C0B73F7.jpeg"><div class="info"><h2>Baneensl</h2><button onclick="openVote('Baneensl',this)">Vote</button></div></div>
-
+  <div class="nominee"><img src="A790F629-7C59-4A88-87F6-7982A1A4167D.jpeg"><div class="info"><h2>Cidan</h2><button onclick="openVote('Cidan',this)">Vote</button></div></div>
+  <div class="nominee"><img src="A6481D0B-23E0-4071-9678-0DF610CF17A2.jpeg"><div class="info"><h2>Fatima</h2><button onclick="openVote('Fatima',this)">Vote</button></div></div>
+  <div class="nominee"><img src="A2ADF901-D203-4986-B5DC-A9302C0E9985.jpeg"><div class="info"><h2>Bane_ne20</h2><button onclick="openVote('Bane_ne20',this)">Vote</button></div></div>
+  <div class="nominee"><img src="AC3A2C33-CDE4-47D7-818F-2DD7DB2BA5D3.jpeg"><div class="info"><h2>Army</h2><button onclick="openVote('Army',this)">Vote</button></div></div>
+  <div class="nominee"><img src="8612183F-98A6-4A6C-A20B-1D62791406E0.jpeg"><div class="info"><h2>Sara</h2><button onclick="openVote('Sara',this)">Vote</button></div></div>
+  <div class="nominee"><img src="8D468B13-1579-42A3-BFDD-6BA7D578AAE2.jpeg"><div class="info"><h2>Myangelbaneen</h2><button onclick="openVote('Myangelbaneen',this)">Vote</button></div></div>
+  <div class="nominee"><img src="F36C18E0-6054-4664-AF43-37E3494A8E60.jpeg"><div class="info"><h2>Marwa</h2><button onclick="openVote('Marwa',this)">Vote</button></div></div>
+  <div class="nominee"><img src="0A0F2703-4D72-4281-A831-0B118E9FBF50.jpeg"><div class="info"><h2>Yassir</h2><button onclick="openVote('Yassir',this)">Vote</button></div></div>
+  <div class="nominee"><img src="48E4CB4E-3434-41BD-BF64-2F79F80F410F.jpeg"><div class="info"><h2>Miral</h2><button onclick="openVote('Miral',this)">Vote</button></div></div>
+  <div class="nominee"><img src="8180E868-F35A-43FC-986A-9F3B6C0B73F7.jpeg"><div class="info"><h2>Baneensl</h2><button onclick="openVote('Baneensl',this)">Vote</button></div></div>
 </div>
 
 <footer onclick="admin()">© 2026 Golden Fan Awards</footer>
@@ -173,18 +196,14 @@ footer{
   <div class="popup-box">
     <img id="pImg" class="popup-img">
     <h3 id="pName"></h3>
-    <p>هل أنت جاهز للتصويت؟<br>Are you ready to vote?</p>
+    <p>هل أنت جاهز للتصويت؟</p>
     <button class="confirm" onclick="confirmVote()">Vote</button>
     <button class="cancel" onclick="closePopup()">Cancel</button>
   </div>
 </div>
 
 <script>
-const nominees=[
-'Cidan','Fatima','Bane_ne20','Army','Sara',
-'Myangelbaneen','Marwa','Yassir','Miral','Baneensl'
-];
-
+const nominees=['Cidan','Fatima','Bane_ne20','Army','Sara','Myangelbaneen','Marwa','Yassir','Miral','Baneensl'];
 let currentName='';
 
 function openVote(name,btn){
