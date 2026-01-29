@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Ghaith – Favorite Fan</title>
+<title>Ghaith Favorite Fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -11,55 +11,39 @@
 body{
   margin:0;
   font-family:'Tajawal',sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(218,190,120,.15), transparent 45%),
-    linear-gradient(160deg,#120b1f,#241437,#120b1f);
-  color:#f5f3ff;
+  background:linear-gradient(160deg,#120b1f,#241437,#120b1f);
+  color:#fff;
 }
 
 header{
   text-align:center;
-  padding:60px 20px 30px;
+  padding:50px 20px;
 }
 
 header h1{
   font-family:'Cinzel',serif;
-  font-size:36px;
-  letter-spacing:2px;
   color:#e6d8a8;
+  letter-spacing:2px;
 }
 
 header p{
-  margin-top:12px;
-  font-size:18px;
   color:#b38cff;
-  text-shadow:0 0 14px rgba(179,140,255,.6);
 }
 
 .container{
   max-width:1100px;
   margin:auto;
-  padding:40px 20px;
+  padding:20px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:30px;
+  gap:25px;
 }
 
 .nominee{
   background:#1a1028;
-  border-radius:22px;
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.6),
-    inset 0 0 0 2px rgba(230,216,168,.35);
-  transition:.4s;
-}
-
-.nominee:hover{
-  transform:translateY(-6px);
-  box-shadow:
-    0 0 0 2px #e6d8a8,
-    0 25px 70px rgba(0,0,0,.7);
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
 
 .nominee img{
@@ -69,38 +53,23 @@ header p{
 }
 
 .info{
-  padding:18px;
+  padding:15px;
   text-align:center;
 }
 
 .info h2{
   font-family:'Cinzel',serif;
-  font-size:18px;
   color:#e6d8a8;
-  margin-bottom:12px;
-  min-height:22px; /* يحافظ على الترتيب حتى لو الاسم فاضي */
+  margin-bottom:10px;
 }
 
-.info button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a,#000);
+button{
+  background:linear-gradient(135deg,#e6d8a8,#bfa76a);
   border:none;
-  color:#120b1f;
-  padding:10px 26px;
+  padding:10px 28px;
   border-radius:30px;
   font-size:14px;
   cursor:pointer;
-  transition:.3s;
-}
-
-.info button:hover{
-  opacity:.85;
-}
-
-footer{
-  text-align:center;
-  padding:30px 10px;
-  opacity:.6;
-  font-size:14px;
 }
 </style>
 </head>
@@ -109,96 +78,44 @@ footer{
 
 <header>
   <h1>GHAITH FAVORITE FAN</h1>
-  <p>Vote / تصويت للمعجب المفضل</p>
+  <p>Vote / تصويت</p>
 </header>
 
 <div class="container">
 
-  <div class="nominee">
-    <img src="BD222593-B60A-4DD6-88B3-646D1E10B6EE.jpeg">
-    <div class="info">
-      <h2>Mutasem</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="4DE43E81-7DAA-4784-B676-57E3BC03270D.jpeg">
-    <div class="info">
-      <h2>Fatima</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="DE646244-538E-483E-9BC0-BE8448E214B9.jpeg">
-    <div class="info">
-      <h2>Teaba</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="AC3789B9-8AF0-488E-973B-F4AFF6E56304.jpeg">
-    <div class="info">
-      <h2>Yara</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="F28DDD67-DE06-45D6-B82C-798A9924315F.jpeg">
-    <div class="info">
-      <h2>Layan</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="54904F52-D00E-4329-B6F8-9979A0DBDC8E.jpeg">
-    <div class="info">
-      <h2>Khawla</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="3211D040-516A-445E-B8FD-824D81BB8E39.jpeg">
-    <div class="info">
-      <h2>Anan</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="B3BB720E-C7B1-4DA8-8D6C-1670AED857E5.jpeg">
-    <div class="info">
-      <h2>Abrar</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="2D343322-36BC-4838-8F1C-7B00A3826A25.jpeg">
-    <div class="info">
-      <h2>Fras</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="Image/ghaith10.jpeg">
-    <div class="info">
-      <h2></h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
+  <div class="nominee"><img src="BD222593-B60A-4DD6-88B3-646D1E10B6EE.jpeg"><div class="info"><h2>Mutasem</h2><button onclick="vote('Mutasem')">Vote</button></div></div>
+  <div class="nominee"><img src="4DE43E81-7DAA-4784-B676-57E3BC03270D.jpeg"><div class="info"><h2>Fatima</h2><button onclick="vote('Fatima')">Vote</button></div></div>
+  <div class="nominee"><img src="DE646244-538E-483E-9BC0-BE8448E214B9.jpeg"><div class="info"><h2>Teaba</h2><button onclick="vote('Teaba')">Vote</button></div></div>
+  <div class="nominee"><img src="AC3789B9-8AF0-488E-973B-F4AFF6E56304.jpeg"><div class="info"><h2>Yara</h2><button onclick="vote('Yara')">Vote</button></div></div>
+  <div class="nominee"><img src="F28DDD67-DE06-45D6-B82C-798A9924315F.jpeg"><div class="info"><h2>Layan</h2><button onclick="vote('Layan')">Vote</button></div></div>
+  <div class="nominee"><img src="54904F52-D00E-4329-B6F8-9979A0DBDC8E.jpeg"><div class="info"><h2>Khawla</h2><button onclick="vote('Khawla')">Vote</button></div></div>
+  <div class="nominee"><img src="3211D040-516A-445E-B8FD-824D81BB8E39.jpeg"><div class="info"><h2>Anan</h2><button onclick="vote('Anan')">Vote</button></div></div>
+  <div class="nominee"><img src="B3BB720E-C7B1-4DA8-8D6C-1670AED857E5.jpeg"><div class="info"><h2>Abrar</h2><button onclick="vote('Abrar')">Vote</button></div></div>
+  <div class="nominee"><img src="2D343322-36BC-4838-8F1C-7B00A3826A25.jpeg"><div class="info"><h2>Fras</h2><button onclick="vote('Fras')">Vote</button></div></div>
 
 </div>
 
-<footer>
-© 2026 Golden Fan Awards
-</footer>
+<script>
+function vote(name){
+  if(localStorage.getItem("voted")){
+    alert("لقد قمت بالتصويت مسبقاً");
+    return;
+  }
+
+  let pass = prompt("أدخل كلمة السر");
+  if(pass !== "2009"){
+    alert("كلمة السر خاطئة");
+    return;
+  }
+
+  let votes = JSON.parse(localStorage.getItem("votes") || "{}");
+  votes[name] = (votes[name] || 0) + 1;
+  localStorage.setItem("votes", JSON.stringify(votes));
+  localStorage.setItem("voted","yes");
+
+  alert("شكراً لتصويتك ❤️");
+}
+</script>
 
 </body>
 </html>
