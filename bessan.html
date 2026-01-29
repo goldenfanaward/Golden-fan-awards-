@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>BESSAN – Favorite Fan</title>
+<title>Bessan Ismail – Favorite Fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -18,20 +18,20 @@ body{
 }
 
 /* زر الرجوع */
-.back-btn{
+.back{
   position:fixed;
-  top:20px;
-  left:20px;
+  top:15px;
+  left:15px;
+  background:#e6d8a8;
+  color:#120b1f;
+  padding:8px 14px;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:600;
   z-index:1000;
-  background:rgba(255,255,255,0.15);
-  color:#fff;
-  padding:8px 16px;
-  border-radius:30px;
-  cursor:pointer;
-  backdrop-filter:blur(6px);
 }
 
-header{text-align:center;padding:70px 20px 30px;}
+header{text-align:center;padding:60px 20px 30px;}
 header h1{
   font-family:'Cinzel',serif;
   font-size:36px;
@@ -42,7 +42,7 @@ header p{
   margin-top:12px;
   font-size:20px;
   color:#b38cff;
-  text-shadow:0 0 12px #fff;
+  text-shadow:0 0 12px rgba(255,255,255,.9);
 }
 
 .container{
@@ -59,37 +59,41 @@ header p{
   border-radius:22px;
   overflow:hidden;
   box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition:.4s;
 }
-
 .nominee img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
 }
 
-.info{
-  padding:18px;
-  text-align:center;
+.nominee.selected{
+  animation:selectGlow .7s ease;
+}
+@keyframes selectGlow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
 }
 
+.info{padding:18px;text-align:center;}
 .info h2{
   font-family:'Cinzel',serif;
   font-size:18px;
   color:#e6d8a8;
   margin-bottom:12px;
 }
-
 .info button{
-  background:linear-gradient(135deg,#fff,#d8c37a);
+  background:linear-gradient(135deg,#fff,#e6d8a8,#bfa76a);
   border:none;
   color:#120b1f;
-  padding:10px 28px;
+  padding:10px 30px;
   border-radius:30px;
   cursor:pointer;
-  font-weight:600;
+  font-weight:700;
 }
 
-/* البوب أب */
+/* نافذة التأكيد */
 .popup{
   position:fixed;
   inset:0;
@@ -99,15 +103,14 @@ header p{
   justify-content:center;
   z-index:999;
 }
-
 .popup-box{
   background:#1a1028;
   border-radius:22px;
   padding:30px;
   text-align:center;
   width:320px;
+  box-shadow:0 0 40px rgba(230,216,168,.5);
 }
-
 .popup-img{
   width:160px;
   height:160px;
@@ -116,15 +119,22 @@ header p{
   border:4px solid #e6d8a8;
   margin-bottom:16px;
 }
-
+.popup h3{
+  color:#e6d8a8;
+  font-family:'Cinzel',serif;
+}
+.popup p{
+  color:#e6d8a8;
+  margin-bottom:20px;
+}
 .confirm{
   background:#e6d8a8;
+  color:#120b1f;
   border:none;
   padding:10px 20px;
   border-radius:25px;
   cursor:pointer;
 }
-
 .cancel{
   background:#444;
   color:#fff;
@@ -132,7 +142,6 @@ header p{
   padding:10px 20px;
   border-radius:25px;
   cursor:pointer;
-  margin-top:10px;
 }
 
 footer{
@@ -146,23 +155,23 @@ footer{
 
 <body>
 
-<div class="back-btn" onclick="history.back()">← رجوع</div>
+<a href="javascript:history.back()" class="back">← رجوع</a>
 
 <header>
-  <h1>BESSAN FAVORITE FAN</h1>
+  <h1>BESSAN ISMAIL FAVORITE FAN</h1>
   <p>Vote / تصويت للمعجب المفضل</p>
 </header>
 
 <div class="container">
-  <div class="nominee"><img src="27D8AD51-1033-4FDC-AF45-72F1C39268B6.jpeg"><div class="info"><h2>Yamen</h2><button onclick="openVote('Yamen',this)">Vote</button></div></div>
   <div class="nominee"><img src="D7663CE9-20F6-48B0-A0BE-CF092EA60BF8.jpeg"><div class="info"><h2>Tween</h2><button onclick="openVote('Tween',this)">Vote</button></div></div>
+  <div class="nominee"><img src="27D8AD51-1033-4FDC-AF45-72F1C39268B6.jpeg"><div class="info"><h2>Yamen</h2><button onclick="openVote('Yamen',this)">Vote</button></div></div>
   <div class="nominee"><img src="EB7CDAB6-D61E-48B5-9D20-E3F7F6EFE813.jpeg"><div class="info"><h2>Amar</h2><button onclick="openVote('Amar',this)">Vote</button></div></div>
   <div class="nominee"><img src="2BBD4E3B-248A-4541-940F-D5C85CCC11EE.jpeg"><div class="info"><h2>Raghad</h2><button onclick="openVote('Raghad',this)">Vote</button></div></div>
   <div class="nominee"><img src="6C5AC2BC-D62C-4D19-9E76-0B8F31680D0C.jpeg"><div class="info"><h2>Barhom</h2><button onclick="openVote('Barhom',this)">Vote</button></div></div>
   <div class="nominee"><img src="CFD83F67-CB13-4638-B03F-715A31DEB990.jpeg"><div class="info"><h2>Romoch</h2><button onclick="openVote('Romoch',this)">Vote</button></div></div>
   <div class="nominee"><img src="B18C7C3F-715D-4260-9D5A-28CD1E4CDA4A.jpeg"><div class="info"><h2>Lamis</h2><button onclick="openVote('Lamis',this)">Vote</button></div></div>
   <div class="nominee"><img src="6EC4877A-2294-46B2-988F-AF72166A561A.jpeg"><div class="info"><h2>Noor</h2><button onclick="openVote('Noor',this)">Vote</button></div></div>
-  <div class="nominee"><img src="988CB796-0B5E-450C-B168-38DC68E1ECF3.jpeg"><div class="info"><h2>BESSAN.ISAIL60</h2><button onclick="openVote('BESSAN',this)">Vote</button></div></div>
+  <div class="nominee"><img src="988CB796-0B5E-450C-B168-38DC68E1ECF3.jpeg"><div class="info"><h2>Bessan.isail60</h2><button onclick="openVote('Bessan',this)">Vote</button></div></div>
   <div class="nominee"><img src="AE07C2F4-57CA-43C3-89D9-825347C32EFC.jpeg"><div class="info"><h2>Malak</h2><button onclick="openVote('Malak',this)">Vote</button></div></div>
 </div>
 
@@ -179,7 +188,11 @@ footer{
 </div>
 
 <script>
-const nominees=['Yamen','Tween','Amar','Raghad','Barhom','Romoch','Lamis','Noor','BESSAN','Malak'];
+const nominees=[
+'Tween','Yamen','Amar','Raghad','Barhom',
+'Romoch','Lamis','Noor','Bessan','Malak'
+];
+
 let currentName='';
 
 function openVote(name,btn){
@@ -187,17 +200,21 @@ function openVote(name,btn){
     alert('لقد قمت بالتصويت مسبقاً');
     return;
   }
+  btn.closest('.nominee').classList.add('selected');
+  setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
   currentName=name;
-  pName.innerText=name;
-  pImg.src=btn.closest('.nominee').querySelector('img').src;
-  popup.style.display='flex';
+  document.getElementById('pName').innerText=name;
+  document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
 }
 
-function closePopup(){ popup.style.display='none'; }
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
 
 function confirmVote(){
   let key='bessan_'+currentName;
-  let count=parseInt(localStorage.getItem(key)||0);
+  let count=parseInt(localStorage.getItem(key)||'0');
   localStorage.setItem(key,count+1);
   localStorage.setItem('voted_bessan','yes');
   alert('شكراً لتصويتك 💛');
@@ -209,7 +226,8 @@ function admin(){
   if(p!=='2009') return;
   let r='';
   nominees.forEach(n=>{
-    r+=`${n} : ${localStorage.getItem('bessan_'+n)||0}\n`;
+    let c=localStorage.getItem('bessan_'+n)||0;
+    r+=`${n} : ${c}\n`;
   });
   alert(r);
 }
