@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Noor Stars Favorite Fan</title>
+<title>Noor Stars favorite fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -17,42 +17,46 @@ body{
   color:#f5f3ff;
 }
 
+/* زر الرجوع */
 .back{
   position:fixed;
-  top:20px;
-  right:20px;
-  padding:10px 22px;
-  border-radius:30px;
-  background:rgba(230,216,168,.25);
-  color:#e6d8a8;
+  top:15px;
+  left:15px;
+  background:rgba(230,216,168,0.6);
+  color:#120b1f;
+  padding:8px 18px;
+  border-radius:22px;
   text-decoration:none;
-  backdrop-filter:blur(6px);
   font-weight:600;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.3s;
+  z-index:1000;
+}
+.back:hover{
+  background:rgba(230,216,168,0.9);
+  box-shadow:0 0 22px rgba(230,216,168,.8);
+  transform:scale(1.05);
 }
 
 header{
   text-align:center;
-  padding:70px 20px 40px;
+  padding:70px 20px 30px;
 }
-
 header h1{
   font-family:'Cinzel',serif;
   font-size:36px;
   letter-spacing:2px;
   color:#e6d8a8;
-  position:relative;
-  display:inline-block;
 }
-
-header h1::after{
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-12px;
-  width:100%;
-  height:3px;
-  background:linear-gradient(90deg,transparent,#e6d8a8,transparent);
-  box-shadow:0 0 18px #e6d8a8;
+header p{
+  margin-top:14px;
+  font-size:20px;
+  color:#cbb7ff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.6),
+    0 0 14px rgba(255,255,255,.35),
+    0 0 24px rgba(180,150,255,.4);
 }
 
 .container{
@@ -71,40 +75,35 @@ header h1::after{
   box-shadow:0 20px 50px rgba(0,0,0,.6);
   transition:.4s;
 }
-
 .nominee img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
 }
-
 .nominee.selected{
-  animation:glow .7s ease;
+  animation:selectGlow .7s ease;
 }
-
-@keyframes glow{
-  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
-  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
-  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
+@keyframes selectGlow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.9);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);}
 }
 
 .info{
   padding:18px;
   text-align:center;
 }
-
 .info h2{
   font-family:'Cinzel',serif;
   font-size:18px;
   color:#e6d8a8;
   margin-bottom:12px;
 }
-
 .info button{
   background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
   border:none;
   color:#120b1f;
-  padding:10px 28px;
+  padding:10px 30px;
   border-radius:30px;
   cursor:pointer;
   font-weight:600;
@@ -119,7 +118,6 @@ header h1::after{
   justify-content:center;
   z-index:999;
 }
-
 .popup-box{
   background:#1a1028;
   border-radius:22px;
@@ -128,7 +126,6 @@ header h1::after{
   width:320px;
   box-shadow:0 0 40px rgba(230,216,168,.5);
 }
-
 .popup-img{
   width:160px;
   height:160px;
@@ -137,17 +134,14 @@ header h1::after{
   border:4px solid #e6d8a8;
   margin-bottom:16px;
 }
-
 .popup h3{
   color:#e6d8a8;
   font-family:'Cinzel',serif;
 }
-
 .popup p{
   color:#e6d8a8;
   margin-bottom:20px;
 }
-
 .confirm{
   background:#e6d8a8;
   color:#120b1f;
@@ -156,7 +150,6 @@ header h1::after{
   border-radius:25px;
   cursor:pointer;
 }
-
 .cancel{
   background:#444;
   color:#fff;
@@ -177,25 +170,24 @@ footer{
 
 <body>
 
-<a class="back" href="javascript:history.back()">← رجوع</a>
+<a href="index.html" class="back">← Back</a>
 
 <header>
   <h1>NOOR STARS FAVORITE FAN</h1>
+  <p>Vote / تصويت للمعجب المفضل</p>
 </header>
 
 <div class="container">
-
-<div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="openVote('Lana',this)">Vote</button></div></div>
-<div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="openVote('Linda',this)">Vote</button></div></div>
-<div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="openVote('Namarg',this)">Vote</button></div></div>
-<div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button onclick="openVote('Buchra',this)">Vote</button></div></div>
-<div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button onclick="openVote('Maryam',this)">Vote</button></div></div>
-<div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button onclick="openVote('Hiba',this)">Vote</button></div></div>
-<div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button onclick="openVote('Asma',this)">Vote</button></div></div>
-<div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="openVote('Louay',this)">Vote</button></div></div>
-<div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="openVote('Meera',this)">Vote</button></div></div>
-<div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="openVote('Zahra',this)">Vote</button></div></div>
-
+  <div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="openVote('Lana',this)">Vote</button></div></div>
+  <div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="openVote('Linda',this)">Vote</button></div></div>
+  <div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="openVote('Namarg',this)">Vote</button></div></div>
+  <div class="nominee"><img src="D03B1AF2-10E8-4B44-9992-ED3CBEB01D7A.jpeg"><div class="info"><h2>Buchra</h2><button onclick="openVote('Buchra',this)">Vote</button></div></div>
+  <div class="nominee"><img src="A0FF1762-0587-416A-B7F7-AE138500BB42.jpeg"><div class="info"><h2>Maryam</h2><button onclick="openVote('Maryam',this)">Vote</button></div></div>
+  <div class="nominee"><img src="C5F9A3B4-57FB-403A-AE6C-210AEEBB26D2.jpeg"><div class="info"><h2>Hiba</h2><button onclick="openVote('Hiba',this)">Vote</button></div></div>
+  <div class="nominee"><img src="C5272AD6-2C00-4264-B1A8-402647BB1EB4.jpeg"><div class="info"><h2>Asma</h2><button onclick="openVote('Asma',this)">Vote</button></div></div>
+  <div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="openVote('Louay',this)">Vote</button></div></div>
+  <div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="openVote('Meera',this)">Vote</button></div></div>
+  <div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="openVote('Zahra',this)">Vote</button></div></div>
 </div>
 
 <footer onclick="admin()">© 2026 Golden Fan Awards</footer>
@@ -212,7 +204,7 @@ footer{
 
 <script>
 const nominees=['Lana','Linda','Namarg','Buchra','Maryam','Hiba','Asma','Louay','Meera','Zahra'];
-let current='';
+let currentName='';
 
 function openVote(name,btn){
   if(localStorage.getItem('voted_noor')){
@@ -221,7 +213,7 @@ function openVote(name,btn){
   }
   btn.closest('.nominee').classList.add('selected');
   setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
-  current=name;
+  currentName=name;
   document.getElementById('pName').innerText=name;
   document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
   document.getElementById('popup').style.display='flex';
@@ -232,9 +224,9 @@ function closePopup(){
 }
 
 function confirmVote(){
-  let k='noor_'+current;
-  let c=parseInt(localStorage.getItem(k)||0);
-  localStorage.setItem(k,c+1);
+  let key='noor_'+currentName;
+  let count=parseInt(localStorage.getItem(key)||'0');
+  localStorage.setItem(key,count+1);
   localStorage.setItem('voted_noor','yes');
   alert('شكراً لتصويتك 💛');
   closePopup();
@@ -245,7 +237,8 @@ function admin(){
   if(p!=='2009') return;
   let r='';
   nominees.forEach(n=>{
-    r+=`${n} : ${localStorage.getItem('noor_'+n)||0}\n`;
+    let c=localStorage.getItem('noor_'+n)||0;
+    r+=`${n} : ${c}\n`;
   });
   alert(r);
 }
