@@ -17,7 +17,6 @@ body{
   color:#f5f3ff;
 }
 
-/* زر الرجوع */
 .back{
   position:fixed;
   top:15px;
@@ -53,6 +52,10 @@ header p{
   margin-top:14px;
   font-size:20px;
   color:#cbb7ff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.6),
+    0 0 14px rgba(255,255,255,.35),
+    0 0 24px rgba(180,150,255,.4);
 }
 
 .container{
@@ -182,7 +185,6 @@ footer{
   <div class="nominee"><img src="59F2E79A-DFC9-442B-BEE1-8524FA49427A.jpeg"><div class="info"><h2>Razan</h2><button onclick="openVote('Razan',this)">Vote</button></div></div>
   <div class="nominee"><img src="B9B75546-6AB3-45F8-B8ED-54EA3C4E5215.jpeg"><div class="info"><h2>Jana</h2><button onclick="openVote('Jana',this)">Vote</button></div></div>
   <div class="nominee"><img src="DDAFA502-3B1B-4C38-8AFE-3D2D1F4E8A78.jpeg"><div class="info"><h2>Yana</h2><button onclick="openVote('Yana',this)">Vote</button></div></div>
-  <div class="nominee"><img src="B5C71A8D-8614-4763-83DD-E94A9D7E1145.jpeg"><div class="info"><h2>Jana</h2><button onclick="openVote('Jana2',this)">Vote</button></div></div>
   <div class="nominee"><img src="AEF96220-2D69-4B5C-A68D-9FC91ED34B3E.jpeg"><div class="info"><h2>Qamar</h2><button onclick="openVote('Qamar',this)">Vote</button></div></div>
 </div>
 
@@ -199,7 +201,7 @@ footer{
 </div>
 
 <script>
-const nominees=['Malak','Aya','Qwen','Asmaa','Maya','Razan','Jana','Yana','Jana2','Qamar'];
+const nominees=['Malak','Aya','Qwen','Asmaa','Maya','Razan','Jana','Yana','Qamar'];
 let currentName='';
 
 function openVote(name,btn){
