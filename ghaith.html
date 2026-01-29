@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Ghaith Marwan Favorite Fan</title>
+<title>Ghaith Marwan favorite fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -17,42 +17,46 @@ body{
   color:#f5f3ff;
 }
 
+/* زر الرجوع */
 .back{
   position:fixed;
-  top:20px;
-  right:20px;
-  padding:10px 22px;
-  border-radius:30px;
-  background:rgba(230,216,168,.25);
-  color:#e6d8a8;
+  top:15px;
+  left:15px;
+  background:rgba(230,216,168,0.6);
+  color:#120b1f;
+  padding:8px 18px;
+  border-radius:22px;
   text-decoration:none;
-  backdrop-filter:blur(6px);
   font-weight:600;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.3s;
+  z-index:1000;
+}
+.back:hover{
+  background:rgba(230,216,168,0.9);
+  box-shadow:0 0 22px rgba(230,216,168,.8);
+  transform:scale(1.05);
 }
 
 header{
   text-align:center;
-  padding:70px 20px 40px;
+  padding:70px 20px 30px;
 }
-
 header h1{
   font-family:'Cinzel',serif;
   font-size:36px;
   letter-spacing:2px;
   color:#e6d8a8;
-  position:relative;
-  display:inline-block;
 }
-
-header h1::after{
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-12px;
-  width:100%;
-  height:3px;
-  background:linear-gradient(90deg,transparent,#e6d8a8,transparent);
-  box-shadow:0 0 18px #e6d8a8;
+header p{
+  margin-top:14px;
+  font-size:20px;
+  color:#cbb7ff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.6),
+    0 0 14px rgba(255,255,255,.35),
+    0 0 24px rgba(180,150,255,.4);
 }
 
 .container{
@@ -71,40 +75,35 @@ header h1::after{
   box-shadow:0 20px 50px rgba(0,0,0,.6);
   transition:.4s;
 }
-
 .nominee img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
 }
-
 .nominee.selected{
-  animation:glow .7s ease;
+  animation:selectGlow .7s ease;
 }
-
-@keyframes glow{
-  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
-  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
-  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
+@keyframes selectGlow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.9);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);}
 }
 
 .info{
   padding:18px;
   text-align:center;
 }
-
 .info h2{
   font-family:'Cinzel',serif;
   font-size:18px;
   color:#e6d8a8;
   margin-bottom:12px;
 }
-
 .info button{
   background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
   border:none;
   color:#120b1f;
-  padding:10px 28px;
+  padding:10px 30px;
   border-radius:30px;
   cursor:pointer;
   font-weight:600;
@@ -119,7 +118,6 @@ header h1::after{
   justify-content:center;
   z-index:999;
 }
-
 .popup-box{
   background:#1a1028;
   border-radius:22px;
@@ -128,7 +126,6 @@ header h1::after{
   width:320px;
   box-shadow:0 0 40px rgba(230,216,168,.5);
 }
-
 .popup-img{
   width:160px;
   height:160px;
@@ -137,17 +134,14 @@ header h1::after{
   border:4px solid #e6d8a8;
   margin-bottom:16px;
 }
-
 .popup h3{
   color:#e6d8a8;
   font-family:'Cinzel',serif;
 }
-
 .popup p{
   color:#e6d8a8;
   margin-bottom:20px;
 }
-
 .confirm{
   background:#e6d8a8;
   color:#120b1f;
@@ -156,7 +150,6 @@ header h1::after{
   border-radius:25px;
   cursor:pointer;
 }
-
 .cancel{
   background:#444;
   color:#fff;
@@ -177,25 +170,23 @@ footer{
 
 <body>
 
-<a class="back" href="javascript:history.back()">← رجوع</a>
+<a href="index.html" class="back">← Back</a>
 
 <header>
   <h1>GHAITH MARWAN FAVORITE FAN</h1>
+  <p>Vote / تصويت للمعجب المفضل</p>
 </header>
 
 <div class="container">
-
-<div class="nominee"><img src="BD222593-B60A-4DD6-88B3-646D1E10B6EE.jpeg"><div class="info"><h2>Mutasem</h2><button onclick="openVote('Mutasem',this)">Vote</button></div></div>
-<div class="nominee"><img src="4DE43E81-7DAA-4784-B676-57E3BC03270D.jpeg"><div class="info"><h2>Fatima</h2><button onclick="openVote('Fatima',this)">Vote</button></div></div>
-<div class="nominee"><img src="DE646244-538E-483E-9BC0-BE8448E214B9.jpeg"><div class="info"><h2>Teaba</h2><button onclick="openVote('Teaba',this)">Vote</button></div></div>
-<div class="nominee"><img src="AC3789B9-8AF0-488E-973B-F4AFF6E56304.jpeg"><div class="info"><h2>Yara</h2><button onclick="openVote('Yara',this)">Vote</button></div></div>
-<div class="nominee"><img src="F28DDD67-DE06-45D6-B82C-798A9924315F.jpeg"><div class="info"><h2>Layan</h2><button onclick="openVote('Layan',this)">Vote</button></div></div>
-<div class="nominee"><img src="54904F52-D00E-4329-B6F8-9979A0DBDC8E.jpeg"><div class="info"><h2>Khawla</h2><button onclick="openVote('Khawla',this)">Vote</button></div></div>
-<div class="nominee"><img src="3211D040-516A-445E-B8FD-824D81BB8E39.jpeg"><div class="info"><h2>Anan</h2><button onclick="openVote('Anan',this)">Vote</button></div></div>
-<div class="nominee"><img src="B3BB720E-C7B1-4DA8-8D6C-1670AED857E5.jpeg"><div class="info"><h2>Abrar</h2><button onclick="openVote('Abrar',this)">Vote</button></div></div>
-<div class="nominee"><img src="2D343322-36BC-4838-8F1C-7B00A3826A25.jpeg"><div class="info"><h2>Fras</h2><button onclick="openVote('Fras',this)">Vote</button></div></div>
-<div class="nominee"><img src="Image/ghaith10.jpeg"><div class="info"><h2></h2><button onclick="openVote('',this)">Vote</button></div></div>
-
+  <div class="nominee"><img src="BD222593-B60A-4DD6-88B3-646D1E10B6EE.jpeg"><div class="info"><h2>Mutasem</h2><button onclick="openVote('Mutasem',this)">Vote</button></div></div>
+  <div class="nominee"><img src="4DE43E81-7DAA-4784-B676-57E3BC03270D.jpeg"><div class="info"><h2>Fatima</h2><button onclick="openVote('Fatima',this)">Vote</button></div></div>
+  <div class="nominee"><img src="DE646244-538E-483E-9BC0-BE8448E214B9.jpeg"><div class="info"><h2>Teaba</h2><button onclick="openVote('Teaba',this)">Vote</button></div></div>
+  <div class="nominee"><img src="AC3789B9-8AF0-488E-973B-F4AFF6E56304.jpeg"><div class="info"><h2>Yara</h2><button onclick="openVote('Yara',this)">Vote</button></div></div>
+  <div class="nominee"><img src="F28DDD67-DE06-45D6-B82C-798A9924315F.jpeg"><div class="info"><h2>Layan</h2><button onclick="openVote('Layan',this)">Vote</button></div></div>
+  <div class="nominee"><img src="54904F52-D00E-4329-B6F8-9979A0DBDC8E.jpeg"><div class="info"><h2>Khawla</h2><button onclick="openVote('Khawla',this)">Vote</button></div></div>
+  <div class="nominee"><img src="3211D040-516A-445E-B8FD-824D81BB8E39.jpeg"><div class="info"><h2>Anan</h2><button onclick="openVote('Anan',this)">Vote</button></div></div>
+  <div class="nominee"><img src="B3BB720E-C7B1-4DA8-8D6C-1670AED857E5.jpeg"><div class="info"><h2>Abrar</h2><button onclick="openVote('Abrar',this)">Vote</button></div></div>
+  <div class="nominee"><img src="2D343322-36BC-4838-8F1C-7B00A3826A25.jpeg"><div class="info"><h2>Fras</h2><button onclick="openVote('Fras',this)">Vote</button></div></div>
 </div>
 
 <footer onclick="admin()">© 2026 Golden Fan Awards</footer>
@@ -211,8 +202,8 @@ footer{
 </div>
 
 <script>
-const nominees=['Mutasem','Fatima','Teaba','Yara','Layan','Khawla','Anan','Abrar','Fras',''];
-let current='';
+const nominees=['Mutasem','Fatima','Teaba','Yara','Layan','Khawla','Anan','Abrar','Fras'];
+let currentName='';
 
 function openVote(name,btn){
   if(localStorage.getItem('voted_ghaith')){
@@ -221,7 +212,7 @@ function openVote(name,btn){
   }
   btn.closest('.nominee').classList.add('selected');
   setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
-  current=name;
+  currentName=name;
   document.getElementById('pName').innerText=name;
   document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
   document.getElementById('popup').style.display='flex';
@@ -232,9 +223,9 @@ function closePopup(){
 }
 
 function confirmVote(){
-  let k='ghaith_'+current;
-  let c=parseInt(localStorage.getItem(k)||0);
-  localStorage.setItem(k,c+1);
+  let key='ghaith_'+currentName;
+  let count=parseInt(localStorage.getItem(key)||'0');
+  localStorage.setItem(key,count+1);
   localStorage.setItem('voted_ghaith','yes');
   alert('شكراً لتصويتك 💛');
   closePopup();
@@ -245,7 +236,8 @@ function admin(){
   if(p!=='2009') return;
   let r='';
   nominees.forEach(n=>{
-    r+=`${n || 'بدون اسم'} : ${localStorage.getItem('ghaith_'+n)||0}\n`;
+    let c=localStorage.getItem('ghaith_'+n)||0;
+    r+=`${n} : ${c}\n`;
   });
   alert(r);
 }
