@@ -2,13 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Noor Stars – Favorite Fan</title>
+<title>Noor Stars Favorite Fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* === نفس الستايل تبعك تمامًا === */
 body{
   margin:0;
   font-family:'Tajawal',sans-serif;
@@ -17,44 +16,175 @@ body{
     linear-gradient(160deg,#120b1f,#241437,#120b1f);
   color:#f5f3ff;
 }
-header{text-align:center;padding:60px 20px 30px;}
-header h1{font-family:'Cinzel',serif;font-size:36px;letter-spacing:2px;color:#e6d8a8;}
-header p{margin-top:12px;font-size:20px;color:#b38cff;}
-.container{max-width:1100px;margin:auto;padding:40px 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
-.nominee{background:#1a1028;border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.6);transition:.4s;}
-.nominee img{width:100%;aspect-ratio:1/1;object-fit:cover;}
-.nominee.selected{animation:selectGlow .7s ease;}
-@keyframes selectGlow{
+
+.back{
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:10px 22px;
+  border-radius:30px;
+  background:rgba(230,216,168,.25);
+  color:#e6d8a8;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+  font-weight:600;
+}
+
+header{
+  text-align:center;
+  padding:70px 20px 40px;
+}
+
+header h1{
+  font-family:'Cinzel',serif;
+  font-size:36px;
+  letter-spacing:2px;
+  color:#e6d8a8;
+  position:relative;
+  display:inline-block;
+}
+
+header h1::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-12px;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,transparent,#e6d8a8,transparent);
+  box-shadow:0 0 18px #e6d8a8;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+
+.nominee{
+  background:#1a1028;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition:.4s;
+}
+
+.nominee img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+
+.nominee.selected{
+  animation:glow .7s ease;
+}
+
+@keyframes glow{
   0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
   40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
   100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
 }
-.info{padding:18px;text-align:center;}
-.info h2{font-family:'Cinzel',serif;font-size:18px;color:#e6d8a8;margin-bottom:12px;}
+
+.info{
+  padding:18px;
+  text-align:center;
+}
+
+.info h2{
+  font-family:'Cinzel',serif;
+  font-size:18px;
+  color:#e6d8a8;
+  margin-bottom:12px;
+}
+
 .info button{
   background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
-  border:none;color:#120b1f;padding:10px 26px;
-  border-radius:30px;cursor:pointer;font-weight:600;
+  border:none;
+  color:#120b1f;
+  padding:10px 28px;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:600;
 }
-.popup{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:999;}
-.popup-box{background:#1a1028;border-radius:22px;padding:30px;text-align:center;width:320px;box-shadow:0 0 40px rgba(230,216,168,.5);}
-.popup-img{width:160px;height:160px;border-radius:12px;object-fit:cover;border:4px solid #e6d8a8;margin-bottom:16px;}
-.popup h3{color:#e6d8a8;font-family:'Cinzel',serif;}
-.popup p{color:#e6d8a8;margin-bottom:20px;}
-.confirm{background:#e6d8a8;color:#120b1f;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;}
-.cancel{background:#444;color:#fff;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;}
-footer{text-align:center;padding:30px;opacity:.6;cursor:pointer;}
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.popup-box{
+  background:#1a1028;
+  border-radius:22px;
+  padding:30px;
+  text-align:center;
+  width:320px;
+  box-shadow:0 0 40px rgba(230,216,168,.5);
+}
+
+.popup-img{
+  width:160px;
+  height:160px;
+  border-radius:12px;
+  object-fit:cover;
+  border:4px solid #e6d8a8;
+  margin-bottom:16px;
+}
+
+.popup h3{
+  color:#e6d8a8;
+  font-family:'Cinzel',serif;
+}
+
+.popup p{
+  color:#e6d8a8;
+  margin-bottom:20px;
+}
+
+.confirm{
+  background:#e6d8a8;
+  color:#120b1f;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+.cancel{
+  background:#444;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
+  cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
+<a class="back" href="javascript:history.back()">← رجوع</a>
+
 <header>
   <h1>NOOR STARS FAVORITE FAN</h1>
-  <p>Vote / تصويت للمعجب المفضل</p>
 </header>
 
 <div class="container">
+
 <div class="nominee"><img src="D27C0B40-ECA7-4306-A0D8-FD7941FE75F2.jpeg"><div class="info"><h2>Lana</h2><button onclick="openVote('Lana',this)">Vote</button></div></div>
 <div class="nominee"><img src="83EA8840-56D2-46ED-B91C-9BAD2FAEDA76.jpeg"><div class="info"><h2>Linda</h2><button onclick="openVote('Linda',this)">Vote</button></div></div>
 <div class="nominee"><img src="F40AE4A6-846B-45CE-A33B-2889A202D70A.jpeg"><div class="info"><h2>Namarg</h2><button onclick="openVote('Namarg',this)">Vote</button></div></div>
@@ -65,6 +195,7 @@ footer{text-align:center;padding:30px;opacity:.6;cursor:pointer;}
 <div class="nominee"><img src="D2222267-BFB7-4FA2-99DC-D264B4C1219F.jpeg"><div class="info"><h2>Louay</h2><button onclick="openVote('Louay',this)">Vote</button></div></div>
 <div class="nominee"><img src="D9A6351F-8E43-4924-AAFE-F694F08D3B66.jpeg"><div class="info"><h2>Meera</h2><button onclick="openVote('Meera',this)">Vote</button></div></div>
 <div class="nominee"><img src="86CCCF6F-4D59-4E1C-81CA-EBD1B97AC960.jpeg"><div class="info"><h2>Zahra</h2><button onclick="openVote('Zahra',this)">Vote</button></div></div>
+
 </div>
 
 <footer onclick="admin()">© 2026 Golden Fan Awards</footer>
@@ -73,19 +204,15 @@ footer{text-align:center;padding:30px;opacity:.6;cursor:pointer;}
   <div class="popup-box">
     <img id="pImg" class="popup-img">
     <h3 id="pName"></h3>
-    <p>هل أنت جاهز للتصويت؟<br>Are you ready to vote?</p>
+    <p>هل أنت جاهز للتصويت؟</p>
     <button class="confirm" onclick="confirmVote()">Vote</button>
     <button class="cancel" onclick="closePopup()">Cancel</button>
   </div>
 </div>
 
 <script>
-const nominees=[
-'Lana','Linda','Namarg','Buchra','Maryam',
-'Hiba','Asma','Louay','Meera','Zahra'
-];
-
-let currentName='';
+const nominees=['Lana','Linda','Namarg','Buchra','Maryam','Hiba','Asma','Louay','Meera','Zahra'];
+let current='';
 
 function openVote(name,btn){
   if(localStorage.getItem('voted_noor')){
@@ -94,7 +221,7 @@ function openVote(name,btn){
   }
   btn.closest('.nominee').classList.add('selected');
   setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
-  currentName=name;
+  current=name;
   document.getElementById('pName').innerText=name;
   document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
   document.getElementById('popup').style.display='flex';
@@ -105,9 +232,9 @@ function closePopup(){
 }
 
 function confirmVote(){
-  let key='noor_'+currentName;
-  let count=parseInt(localStorage.getItem(key)||'0');
-  localStorage.setItem(key,count+1);
+  let k='noor_'+current;
+  let c=parseInt(localStorage.getItem(k)||0);
+  localStorage.setItem(k,c+1);
   localStorage.setItem('voted_noor','yes');
   alert('شكراً لتصويتك 💛');
   closePopup();
@@ -118,8 +245,7 @@ function admin(){
   if(p!=='2009') return;
   let r='';
   nominees.forEach(n=>{
-    let c=localStorage.getItem('noor_'+n)||0;
-    r+=`${n} : ${c}\n`;
+    r+=`${n} : ${localStorage.getItem('noor_'+n)||0}\n`;
   });
   alert(r);
 }
