@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Talin Tube – Favorite Fan</title>
+<title>Talin Tube favorite fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -17,23 +17,46 @@ body{
   color:#f5f3ff;
 }
 
-header{
-  text-align:center;
-  padding:60px 20px 30px;
+/* زر الرجوع */
+.back{
+  position:fixed;
+  top:15px;
+  left:15px;
+  background:rgba(230,216,168,0.6);
+  color:#120b1f;
+  padding:8px 18px;
+  border-radius:22px;
+  text-decoration:none;
+  font-weight:600;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.3s;
+  z-index:1000;
+}
+.back:hover{
+  background:rgba(230,216,168,0.9);
+  box-shadow:0 0 22px rgba(230,216,168,.8);
+  transform:scale(1.05);
 }
 
+header{
+  text-align:center;
+  padding:70px 20px 30px;
+}
 header h1{
   font-family:'Cinzel',serif;
   font-size:36px;
   letter-spacing:2px;
   color:#e6d8a8;
 }
-
 header p{
-  margin-top:12px;
-  font-size:18px;
-  color:#b38cff;
-  text-shadow:0 0 14px rgba(179,140,255,.6);
+  margin-top:14px;
+  font-size:20px;
+  color:#cbb7ff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.6),
+    0 0 14px rgba(255,255,255,.35),
+    0 0 24px rgba(180,150,255,.4);
 }
 
 .container{
@@ -49,62 +72,105 @@ header p{
   background:#1a1028;
   border-radius:22px;
   overflow:hidden;
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.6),
-    inset 0 0 0 2px rgba(230,216,168,.35);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
   transition:.4s;
 }
-
-.nominee:hover{
-  transform:translateY(-6px);
-  box-shadow:
-    0 0 0 2px #e6d8a8,
-    0 25px 70px rgba(0,0,0,.7);
-}
-
 .nominee img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
+}
+.nominee.selected{
+  animation:selectGlow .7s ease;
+}
+@keyframes selectGlow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.9);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);}
 }
 
 .info{
   padding:18px;
   text-align:center;
 }
-
 .info h2{
   font-family:'Cinzel',serif;
   font-size:18px;
   color:#e6d8a8;
   margin-bottom:12px;
 }
-
 .info button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a,#000);
+  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
   border:none;
   color:#120b1f;
-  padding:10px 26px;
+  padding:10px 30px;
   border-radius:30px;
-  font-size:14px;
   cursor:pointer;
-  transition:.3s;
+  font-weight:600;
 }
 
-.info button:hover{
-  opacity:.85;
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.popup-box{
+  background:#1a1028;
+  border-radius:22px;
+  padding:30px;
+  text-align:center;
+  width:320px;
+  box-shadow:0 0 40px rgba(230,216,168,.5);
+}
+.popup-img{
+  width:160px;
+  height:160px;
+  border-radius:12px;
+  object-fit:cover;
+  border:4px solid #e6d8a8;
+  margin-bottom:16px;
+}
+.popup h3{
+  color:#e6d8a8;
+  font-family:'Cinzel',serif;
+}
+.popup p{
+  color:#e6d8a8;
+  margin-bottom:20px;
+}
+.confirm{
+  background:#e6d8a8;
+  color:#120b1f;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+}
+.cancel{
+  background:#444;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
 }
 
 footer{
   text-align:center;
-  padding:30px 10px;
+  padding:30px;
   opacity:.6;
-  font-size:14px;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
+
+<a href="index.html" class="back">← Back</a>
 
 <header>
   <h1>TALIN TUBE FAVORITE FAN</h1>
@@ -112,92 +178,71 @@ footer{
 </header>
 
 <div class="container">
-
-  <div class="nominee">
-    <img src="2C2D9542-5E27-487B-9BA5-13EC5B585032.jpeg">
-    <div class="info">
-      <h2>Rami</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="ADCCE9C5-4AE0-4533-AB73-B49CF39A6CD2.jpeg">
-    <div class="info">
-      <h2>Imen</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="639296A9-2E1D-461C-B2E3-D8C2EAD085AF.jpeg">
-    <div class="info">
-      <h2>Najib</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="53E5BF5C-79E5-4F47-8F82-F1DC3BACF967.jpeg">
-    <div class="info">
-      <h2>Sadek</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="E559D810-24FF-4DCE-A0A1-38718ED81E9E.jpeg">
-    <div class="info">
-      <h2>Nada</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="266F0E51-2B86-444A-ACAF-A823B731A78E.jpeg">
-    <div class="info">
-      <h2>Eyad</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="9E62F2B7-CF26-4945-98C2-F3B463274AB8.jpeg">
-    <div class="info">
-      <h2>Dono</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="3644077E-7796-4649-BE11-6BE10EAAB027.jpeg">
-    <div class="info">
-      <h2>Iman</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="7FDC62B0-CF60-484E-9392-1AAB835B4F80.jpeg">
-    <div class="info">
-      <h2>Lina</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
-  <div class="nominee">
-    <img src="E1ED0111-CE63-4DFE-943D-94E1F78B908F.jpeg">
-    <div class="info">
-      <h2>Mariam</h2>
-      <button>Vote / تصويت</button>
-    </div>
-  </div>
-
+  <div class="nominee"><img src="2C2D9542-5E27-487B-9BA5-13EC5B585032.jpeg"><div class="info"><h2>Rami</h2><button onclick="openVote('Rami',this)">Vote</button></div></div>
+  <div class="nominee"><img src="ADCCE9C5-4AE0-4533-AB73-B49CF39A6CD2.jpeg"><div class="info"><h2>Imen</h2><button onclick="openVote('Imen',this)">Vote</button></div></div>
+  <div class="nominee"><img src="639296A9-2E1D-461C-B2E3-D8C2EAD085AF.jpeg"><div class="info"><h2>Najib</h2><button onclick="openVote('Najib',this)">Vote</button></div></div>
+  <div class="nominee"><img src="53E5BF5C-79E5-4F47-8F82-F1DC3BACF967.jpeg"><div class="info"><h2>Sadek</h2><button onclick="openVote('Sadek',this)">Vote</button></div></div>
+  <div class="nominee"><img src="E559D810-24FF-4DCE-A0A1-38718ED81E9E.jpeg"><div class="info"><h2>Nada</h2><button onclick="openVote('Nada',this)">Vote</button></div></div>
+  <div class="nominee"><img src="266F0E51-2B86-444A-ACAF-A823B731A78E.jpeg"><div class="info"><h2>Eyad</h2><button onclick="openVote('Eyad',this)">Vote</button></div></div>
+  <div class="nominee"><img src="9E62F2B7-CF26-4945-98C2-F3B463274AB8.jpeg"><div class="info"><h2>Dono</h2><button onclick="openVote('Dono',this)">Vote</button></div></div>
+  <div class="nominee"><img src="3644077E-7796-4649-BE11-6BE10EAAB027.jpeg"><div class="info"><h2>Iman</h2><button onclick="openVote('Iman',this)">Vote</button></div></div>
+  <div class="nominee"><img src="7FDC62B0-CF60-484E-9392-1AAB835B4F80.jpeg"><div class="info"><h2>Lina</h2><button onclick="openVote('Lina',this)">Vote</button></div></div>
+  <div class="nominee"><img src="E1ED0111-CE63-4DFE-943D-94E1F78B908F.jpeg"><div class="info"><h2>Mariam</h2><button onclick="openVote('Mariam',this)">Vote</button></div></div>
 </div>
 
-<footer>
-© 2026 Golden Fan Awards
-</footer>
+<footer onclick="admin()">© 2026 Golden Fan Awards</footer>
+
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <img id="pImg" class="popup-img">
+    <h3 id="pName"></h3>
+    <p>هل أنت جاهز للتصويت؟</p>
+    <button class="confirm" onclick="confirmVote()">Vote</button>
+    <button class="cancel" onclick="closePopup()">Cancel</button>
+  </div>
+</div>
+
+<script>
+const nominees=['Rami','Imen','Najib','Sadek','Nada','Eyad','Dono','Iman','Lina','Mariam'];
+let currentName='';
+
+function openVote(name,btn){
+  if(localStorage.getItem('voted_talin')){
+    alert('لقد قمت بالتصويت مسبقاً');
+    return;
+  }
+  btn.closest('.nominee').classList.add('selected');
+  setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
+  currentName=name;
+  document.getElementById('pName').innerText=name;
+  document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
+}
+
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
+
+function confirmVote(){
+  let key='talin_'+currentName;
+  let count=parseInt(localStorage.getItem(key)||'0');
+  localStorage.setItem(key,count+1);
+  localStorage.setItem('voted_talin','yes');
+  alert('شكراً لتصويتك 💛');
+  closePopup();
+}
+
+function admin(){
+  let p=prompt('كلمة السر');
+  if(p!=='2009') return;
+  let r='';
+  nominees.forEach(n=>{
+    let c=localStorage.getItem('talin_'+n)||0;
+    r+=`${n} : ${c}\n`;
+  });
+  alert(r);
+}
+</script>
 
 </body>
 </html>
