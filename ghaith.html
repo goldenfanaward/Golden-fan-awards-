@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Ghaith Favorite Fan</title>
+<title>Ghaith Stars Favorite Fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -11,39 +11,65 @@
 body{
   margin:0;
   font-family:'Tajawal',sans-serif;
-  background:linear-gradient(160deg,#120b1f,#241437,#120b1f);
-  color:#fff;
+  background:
+    radial-gradient(circle at top, rgba(218,190,120,.15), transparent 45%),
+    linear-gradient(160deg,#120b1f,#241437,#120b1f);
+  color:#f5f3ff;
+}
+
+.back{
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:10px 22px;
+  border-radius:30px;
+  background:rgba(230,216,168,.25);
+  color:#e6d8a8;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+  font-weight:600;
 }
 
 header{
   text-align:center;
-  padding:50px 20px;
+  padding:70px 20px 40px;
 }
 
 header h1{
   font-family:'Cinzel',serif;
-  color:#e6d8a8;
+  font-size:36px;
   letter-spacing:2px;
+  color:#e6d8a8;
+  position:relative;
+  display:inline-block;
 }
 
-header p{
-  color:#b38cff;
+header h1::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-12px;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,transparent,#e6d8a8,transparent);
+  box-shadow:0 0 18px #e6d8a8;
 }
 
 .container{
   max-width:1100px;
   margin:auto;
-  padding:20px;
+  padding:40px 20px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:25px;
+  gap:30px;
 }
 
 .nominee{
   background:#1a1028;
-  border-radius:20px;
+  border-radius:22px;
   overflow:hidden;
-  box-shadow:0 15px 40px rgba(0,0,0,.6);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition:.4s;
 }
 
 .nominee img{
@@ -52,23 +78,98 @@ header p{
   object-fit:cover;
 }
 
+.nominee.selected{
+  animation:glow .7s ease;
+}
+
+@keyframes glow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);transform:scale(1);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.8);transform:scale(1.03);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);transform:scale(1);}
+}
+
 .info{
-  padding:15px;
+  padding:18px;
   text-align:center;
 }
 
 .info h2{
   font-family:'Cinzel',serif;
+  font-size:18px;
   color:#e6d8a8;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
-button{
-  background:linear-gradient(135deg,#e6d8a8,#bfa76a);
+.info button{
+  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
   border:none;
+  color:#120b1f;
   padding:10px 28px;
   border-radius:30px;
-  font-size:14px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.popup-box{
+  background:#1a1028;
+  border-radius:22px;
+  padding:30px;
+  text-align:center;
+  width:320px;
+  box-shadow:0 0 40px rgba(230,216,168,.5);
+}
+
+.popup-img{
+  width:160px;
+  height:160px;
+  border-radius:12px;
+  object-fit:cover;
+  border:4px solid #e6d8a8;
+  margin-bottom:16px;
+}
+
+.popup h3{
+  color:#e6d8a8;
+  font-family:'Cinzel',serif;
+}
+
+.popup p{
+  color:#e6d8a8;
+  margin-bottom:20px;
+}
+
+.confirm{
+  background:#e6d8a8;
+  color:#120b1f;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+.cancel{
+  background:#444;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
   cursor:pointer;
 }
 </style>
@@ -76,44 +177,77 @@ button{
 
 <body>
 
+<a class="back" href="javascript:history.back()">← رجوع</a>
+
 <header>
-  <h1>GHAITH FAVORITE FAN</h1>
-  <p>Vote / تصويت</p>
+  <h1>GHAITH STARS FAVORITE FAN</h1>
 </header>
 
 <div class="container">
 
-  <div class="nominee"><img src="BD222593-B60A-4DD6-88B3-646D1E10B6EE.jpeg"><div class="info"><h2>Mutasem</h2><button onclick="vote('Mutasem')">Vote</button></div></div>
-  <div class="nominee"><img src="4DE43E81-7DAA-4784-B676-57E3BC03270D.jpeg"><div class="info"><h2>Fatima</h2><button onclick="vote('Fatima')">Vote</button></div></div>
-  <div class="nominee"><img src="DE646244-538E-483E-9BC0-BE8448E214B9.jpeg"><div class="info"><h2>Teaba</h2><button onclick="vote('Teaba')">Vote</button></div></div>
-  <div class="nominee"><img src="AC3789B9-8AF0-488E-973B-F4AFF6E56304.jpeg"><div class="info"><h2>Yara</h2><button onclick="vote('Yara')">Vote</button></div></div>
-  <div class="nominee"><img src="F28DDD67-DE06-45D6-B82C-798A9924315F.jpeg"><div class="info"><h2>Layan</h2><button onclick="vote('Layan')">Vote</button></div></div>
-  <div class="nominee"><img src="54904F52-D00E-4329-B6F8-9979A0DBDC8E.jpeg"><div class="info"><h2>Khawla</h2><button onclick="vote('Khawla')">Vote</button></div></div>
-  <div class="nominee"><img src="3211D040-516A-445E-B8FD-824D81BB8E39.jpeg"><div class="info"><h2>Anan</h2><button onclick="vote('Anan')">Vote</button></div></div>
-  <div class="nominee"><img src="B3BB720E-C7B1-4DA8-8D6C-1670AED857E5.jpeg"><div class="info"><h2>Abrar</h2><button onclick="vote('Abrar')">Vote</button></div></div>
-  <div class="nominee"><img src="2D343322-36BC-4838-8F1C-7B00A3826A25.jpeg"><div class="info"><h2>Fras</h2><button onclick="vote('Fras')">Vote</button></div></div>
+<div class="nominee"><img src="BD222593-B60A-4DD6-88B3-646D1E10B6EE.jpeg"><div class="info"><h2>Mutasem</h2><button onclick="openVote('Mutasem',this)">Vote</button></div></div>
+<div class="nominee"><img src="4DE43E81-7DAA-4784-B676-57E3BC03270D.jpeg"><div class="info"><h2>Fatima</h2><button onclick="openVote('Fatima',this)">Vote</button></div></div>
+<div class="nominee"><img src="DE646244-538E-483E-9BC0-BE8448E214B9.jpeg"><div class="info"><h2>Teaba</h2><button onclick="openVote('Teaba',this)">Vote</button></div></div>
+<div class="nominee"><img src="AC3789B9-8AF0-488E-973B-F4AFF6E56304.jpeg"><div class="info"><h2>Yara</h2><button onclick="openVote('Yara',this)">Vote</button></div></div>
+<div class="nominee"><img src="F28DDD67-DE06-45D6-B82C-798A9924315F.jpeg"><div class="info"><h2>Layan</h2><button onclick="openVote('Layan',this)">Vote</button></div></div>
+<div class="nominee"><img src="54904F52-D00E-4329-B6F8-9979A0DBDC8E.jpeg"><div class="info"><h2>Khawla</h2><button onclick="openVote('Khawla',this)">Vote</button></div></div>
+<div class="nominee"><img src="3211D040-516A-445E-B8FD-824D81BB8E39.jpeg"><div class="info"><h2>Anan</h2><button onclick="openVote('Anan',this)">Vote</button></div></div>
+<div class="nominee"><img src="B3BB720E-C7B1-4DA8-8D6C-1670AED857E5.jpeg"><div class="info"><h2>Abrar</h2><button onclick="openVote('Abrar',this)">Vote</button></div></div>
+<div class="nominee"><img src="2D343322-36BC-4838-8F1C-7B00A3826A25.jpeg"><div class="info"><h2>Fras</h2><button onclick="openVote('Fras',this)">Vote</button></div></div>
+<div class="nominee"><img src="Image/ghaith10.jpeg"><div class="info"><h2></h2><button onclick="openVote('',this)">Vote</button></div></div>
 
 </div>
 
+<footer onclick="admin()">© 2026 Golden Fan Awards</footer>
+
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <img id="pImg" class="popup-img">
+    <h3 id="pName"></h3>
+    <p>هل أنت جاهز للتصويت؟</p>
+    <button class="confirm" onclick="confirmVote()">Vote</button>
+    <button class="cancel" onclick="closePopup()">Cancel</button>
+  </div>
+</div>
+
 <script>
-function vote(name){
-  if(localStorage.getItem("voted")){
-    alert("لقد قمت بالتصويت مسبقاً");
+const nominees=['Mutasem','Fatima','Teaba','Yara','Layan','Khawla','Anan','Abrar','Fras',''];
+let current='';
+
+function openVote(name,btn){
+  if(localStorage.getItem('voted_ghaith')){
+    alert('لقد قمت بالتصويت مسبقاً');
     return;
   }
+  btn.closest('.nominee').classList.add('selected');
+  setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
+  current=name;
+  document.getElementById('pName').innerText=name;
+  document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
+}
 
-  let pass = prompt("أدخل كلمة السر");
-  if(pass !== "2009"){
-    alert("كلمة السر خاطئة");
-    return;
-  }
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
 
-  let votes = JSON.parse(localStorage.getItem("votes") || "{}");
-  votes[name] = (votes[name] || 0) + 1;
-  localStorage.setItem("votes", JSON.stringify(votes));
-  localStorage.setItem("voted","yes");
+function confirmVote(){
+  let k='ghaith_'+current;
+  let c=parseInt(localStorage.getItem(k)||0);
+  localStorage.setItem(k,c+1);
+  localStorage.setItem('voted_ghaith','yes');
+  alert('شكراً لتصويتك 💛');
+  closePopup();
+}
 
-  alert("شكراً لتصويتك ❤️");
+function admin(){
+  let p=prompt('كلمة السر');
+  if(p!=='2009') return;
+  let r='';
+  nominees.forEach(n=>{
+    r+=`${n || 'بدون اسم'} : ${localStorage.getItem('ghaith_'+n)||0}\n`;
+  });
+  alert(r);
 }
 </script>
 
