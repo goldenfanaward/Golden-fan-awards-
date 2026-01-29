@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>BESSAN – Golden Fan Awards</title>
+<title>BESSAN – Favorite Fan</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
@@ -17,8 +17,13 @@ body{
   color:#f5f3ff;
 }
 header{text-align:center;padding:60px 20px 30px;}
-header h1{font-family:'Cinzel',serif;font-size:34px;color:#e6d8a8;}
-header p{margin-top:10px;font-size:18px;color:#b38cff;}
+header h1{font-family:'Cinzel',serif;font-size:36px;letter-spacing:2px;color:#e6d8a8;}
+header p{
+  margin-top:12px;
+  font-size:20px;
+  color:#b38cff;
+  text-shadow:0 0 10px #fff;
+}
 
 .container{
   max-width:1100px;
@@ -40,69 +45,35 @@ header p{margin-top:10px;font-size:18px;color:#b38cff;}
   aspect-ratio:1/1;
   object-fit:cover;
 }
-.info{text-align:center;padding:18px;}
+.info{
+  padding:18px;
+  text-align:center;
+}
 .info h2{
   font-family:'Cinzel',serif;
+  font-size:18px;
   color:#e6d8a8;
-  margin-bottom:12px;
+}
+.votes{
+  margin:8px 0;
+  font-size:15px;
+  color:#fff;
 }
 .info button{
-  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
+  background:linear-gradient(135deg,#ffffff,#d6c27a);
   border:none;
-  padding:10px 26px;
+  color:#120b1f;
+  padding:10px 30px;
   border-radius:30px;
   cursor:pointer;
-  font-weight:600;
+  font-weight:700;
 }
 
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-}
-.popup-box{
-  background:#1a1028;
+footer{
+  text-align:center;
   padding:30px;
-  border-radius:22px;
-  text-align:center;
-  width:320px;
-}
-.popup-img{
-  width:160px;
-  height:160px;
-  object-fit:cover;
-  border-radius:12px;
-  border:4px solid #e6d8a8;
-  margin-bottom:16px;
-}
-.confirm,.cancel{
-  border:none;
-  padding:10px 20px;
-  border-radius:25px;
+  opacity:.6;
   cursor:pointer;
-}
-.confirm{background:#e6d8a8;color:#120b1f;}
-.cancel{background:#444;color:#fff;margin-right:10px;}
-
-.admin{
-  text-align:center;
-  margin:40px 0;
-  color:#777;
-  cursor:pointer;
-}
-table{
-  width:100%;
-  margin-top:20px;
-  border-collapse:collapse;
-}
-td,th{
-  border-bottom:1px solid #333;
-  padding:8px;
-  text-align:center;
 }
 </style>
 </head>
@@ -110,164 +81,70 @@ td,th{
 <body>
 
 <header>
-  <h1>BESSAN – FAVORITE FAN</h1>
-  <p>Golden Fan Awards</p>
+  <h1>BESSAN FAVORITE FAN</h1>
+  <p>Vote for your favorite fan</p>
 </header>
 
-<div class="container">
-  <!-- Yamen -->
-  <div class="nominee">
-    <img src="27D8AD51-1033-4FDC-AF45-72F1C39268B6.jpeg">
-    <div class="info">
-      <h2>Yamen</h2>
-      <button onclick="openVote('Yamen',this)">Vote</button>
-    </div>
-  </div>
+<div class="container" id="list"></div>
 
-  <!-- Raghad -->
-  <div class="nominee">
-    <img src="2BBD4E3B-248A-4541-940F-D5C85CCC11EE.jpeg">
-    <div class="info">
-      <h2>Raghad</h2>
-      <button onclick="openVote('Raghad',this)">Vote</button>
-    </div>
-  </div>
+<footer onclick="admin()">© 2026 Golden Fan Awards</footer>
 
-  <!-- Barhom -->
-  <div class="nominee">
-    <img src="6C5AC2BC-D62C-4D19-9E76-0B8F31680D0C.jpeg">
-    <div class="info">
-      <h2>Barhom</h2>
-      <button onclick="openVote('Barhom',this)">Vote</button>
-    </div>
-  </div>
+<script>
+const nominees = [
+  {name:"Tween", img:"D7663CE9-20F6-48B0-A0BE-CF092EA60BF8.jpeg"},
+  {name:"Yamen", img:"27D8AD51-1033-4FDC-AF45-72F1C39268B6.jpeg"},
+  {name:"Amar", img:"EB7CDAB6-D61E-48B5-9D20-E3F7F6EFE813.jpeg"},
+  {name:"Raghad", img:"2BBD4E3B-248A-4541-940F-D5C85CCC11EE.jpeg"},
+  {name:"Barhom", img:"6C5AC2BC-D62C-4D19-9E76-0B8F31680D0C.jpeg"},
+  {name:"Romoch", img:"CFD83F67-CB13-4638-B03F-715A31DEB990.jpeg"},
+  {name:"Lamis", img:"B18C7C3F-715D-4260-9D5A-28CD1E4CDA4A.jpeg"},
+  {name:"Noor", img:"6EC4877A-2294-46B2-988F-AF72166A561A.jpeg"},
+  {name:"BESSAN.ISAIL60", img:"988CB796-0B5E-450C-B168-38DC68E1ECF3.jpeg"},
+  {name:"Malak", img:"AE07C2F4-57CA-43C3-89D9-825347C32EFC.jpeg"}
+];
 
-  <!-- Noor -->
-  <div class="nominee">
-    <img src="6EC4877A-2294-46B2-988F-AF72166A561A.jpeg">
-    <div class="info">
-      <h2>Noor</h2>
-      <button onclick="openVote('Noor',this)">Vote</button>
-    </div>
-  </div>
+const container = document.getElementById("list");
 
-  <!-- Bessan -->
-  <div class="nominee">
-    <img src="988CB796-0B5E-450C-B168-38DC68E1ECF3.jpeg">
-    <div class="info">
-      <h2>BESSAN.ISAIL60</h2>
-      <button onclick="openVote('BESSAN.ISAIL60',this)">Vote</button>
-    </div>
-  </div>
-
-  <!-- Malak -->
-  <div class="nominee">
-    <img src="AE07C2F4-57CA-43C3-89D9-825347C32EFC.jpeg">
-    <div class="info">
-      <h2>Malak</h2>
-      <button onclick="openVote('Malak',this)">Vote</button>
-    </div>
-  </div>
-
-  <!-- Lamis -->
-  <div class="nominee">
-    <img src="B18C7C3F-715D-4260-9D5A-28CD1E4CDA4A.jpeg">
-    <div class="info">
-      <h2>Lamis</h2>
-      <button onclick="openVote('Lamis',this)">Vote</button>
-    </div>
-  </div>
-
-  <!-- Romoch -->
-  <div class="nominee">
-    <img src="CFD83F67-CB13-4638-B03F-715A31DEB990.jpeg">
-    <div class="info">
-      <h2>Romoch</h2>
-      <button onclick="openVote('Romoch',this)">Vote</button>
-    </div>
-  </div>
-
-  <!-- Tween -->
-  <div class="nominee">
-    <img src="D7663CE9-20F6-48B0-A0BE-CF092EA60BF8.jpeg">
-    <div class="info">
-      <h2>Tween</h2>
-      <button onclick="openVote('Tween',this)">Vote</button>
-    </div>
-  </div>
-
-  <!-- Amar -->
-  <div class="nominee">
-    <img src="EB7CDAB6-D61E-48B5-9D20-E3F7F6EFE813.jpeg">
-    <div class="info">
-      <h2>Amar</h2>
-      <button onclick="openVote('Amar',this)">Vote</button>
-    </div>
-  </div>
-</div>
-
-<div class="popup" id="popup">
-  <div class="popup-box">
-    <img id="pImg" class="popup-img">
-    <h3 id="pName"></h3>
-    <p>تأكيد التصويت؟</p>
-    <button class="confirm" onclick="confirmVote()">Vote</button>
-    <button class="cancel" onclick="closePopup()">Cancel</button>
-  </div>
-</div>
-
-<div class="admin" onclick="adminLogin()">Golden Fan Awards</div>
-<div id="results"></div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, doc, setDoc, getDocs, collection, increment } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBN_UM5pj9OZI3npdPkA5N8YihEEcmkaR8",
-  authDomain: "golden-fan-awards.firebaseapp.com",
-  projectId: "golden-fan-awards",
-};
-
-const ADMIN_PASSWORD = "GFA-2026";
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-let currentName='';
-let voted = localStorage.getItem('voted_bessan');
-
-window.openVote=(name,btn)=>{
-  if(voted){alert("تم التصويت مسبقاً");return;}
-  currentName=name;
-  document.getElementById("pName").innerText=name;
-  document.getElementById("pImg").src=btn.closest(".nominee").querySelector("img").src;
-  document.getElementById("popup").style.display="flex";
-}
-
-window.closePopup=()=>document.getElementById("popup").style.display="none";
-
-window.confirmVote=async()=>{
-  const ref=doc(db,"votes_bessan",currentName);
-  await setDoc(ref,{count:increment(1)},{merge:true});
-  localStorage.setItem("voted_bessan","yes");
-  alert("تم التصويت 💛");
-  closePopup();
-}
-
-window.adminLogin=async()=>{
-  const pass=prompt("أدخل كلمة السر");
-  if(pass!==ADMIN_PASSWORD) return;
-
-  const snap=await getDocs(collection(db,"votes_bessan"));
-  let html="<table><tr><th>الاسم</th><th>الأصوات</th></tr>";
-  snap.forEach(d=>{
-    html+=`<tr><td>${d.id}</td><td>${d.data().count||0}</td></tr>`;
+function render(){
+  container.innerHTML='';
+  nominees.forEach(n=>{
+    let v = localStorage.getItem('bessan_'+n.name) || 0;
+    container.innerHTML += `
+      <div class="nominee">
+        <img src="${n.img}">
+        <div class="info">
+          <h2>${n.name}</h2>
+          <div class="votes">Votes: ${v}</div>
+          <button onclick="vote('${n.name}')">VOTE</button>
+        </div>
+      </div>`;
   });
-  html+="</table>";
-  document.getElementById("results").innerHTML=html;
 }
+
+function vote(name){
+  if(localStorage.getItem('voted_bessan')){
+    alert('لقد قمت بالتصويت مسبقاً');
+    return;
+  }
+  let key = 'bessan_'+name;
+  let count = parseInt(localStorage.getItem(key)||0);
+  localStorage.setItem(key, count+1);
+  localStorage.setItem('voted_bessan','yes');
+  alert('تم التصويت ✔️');
+  render();
+}
+
+function admin(){
+  let p = prompt('كلمة السر');
+  if(p !== '2009') return;
+  let r = 'نتائج التصويت:\n\n';
+  nominees.forEach(n=>{
+    r += `${n.name} : ${localStorage.getItem('bessan_'+n.name)||0}\n`;
+  });
+  alert(r);
+}
+
+render();
 </script>
 
 </body>
