@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Raghad fahmi favorite fan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tajawal:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Tajawal',sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(218,190,120,.15), transparent 45%),
+    linear-gradient(160deg,#120b1f,#241437,#120b1f);
+  color:#f5f3ff;
+}
+
+/* زر الرجوع */
+.back{
+  position:fixed;
+  top:15px;
+  left:15px;
+  background:rgba(230,216,168,0.6);
+  color:#120b1f;
+  padding:8px 18px;
+  border-radius:22px;
+  text-decoration:none;
+  font-weight:600;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.3s;
+  z-index:1000;
+}
+.back:hover{
+  background:rgba(230,216,168,0.9);
+  box-shadow:0 0 22px rgba(230,216,168,.8);
+  transform:scale(1.05);
+}
+
+header{
+  text-align:center;
+  padding:70px 20px 30px;
+}
+header h1{
+  font-family:'Cinzel',serif;
+  font-size:36px;
+  letter-spacing:2px;
+  color:#e6d8a8;
+}
+header p{
+  margin-top:14px;
+  font-size:20px;
+  color:#cbb7ff;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.6),
+    0 0 14px rgba(255,255,255,.35),
+    0 0 24px rgba(180,150,255,.4);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+
+.nominee{
+  background:#1a1028;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
+  transition:.4s;
+}
+.nominee img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+.nominee.selected{
+  animation:selectGlow .7s ease;
+}
+@keyframes selectGlow{
+  0%{box-shadow:0 0 0 rgba(230,216,168,0);}
+  40%{box-shadow:0 0 35px rgba(230,216,168,.9);}
+  100%{box-shadow:0 0 15px rgba(230,216,168,.4);}
+}
+
+.info{
+  padding:18px;
+  text-align:center;
+}
+.info h2{
+  font-family:'Cinzel',serif;
+  font-size:18px;
+  color:#e6d8a8;
+  margin-bottom:12px;
+}
+.info button{
+  background:linear-gradient(135deg,#f5e6b3,#bfa76a,#000);
+  border:none;
+  color:#120b1f;
+  padding:10px 30px;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.popup-box{
+  background:#1a1028;
+  border-radius:22px;
+  padding:30px;
+  text-align:center;
+  width:320px;
+  box-shadow:0 0 40px rgba(230,216,168,.5);
+}
+.popup-img{
+  width:160px;
+  height:160px;
+  border-radius:12px;
+  object-fit:cover;
+  border:4px solid #e6d8a8;
+  margin-bottom:16px;
+}
+.popup h3{
+  color:#e6d8a8;
+  font-family:'Cinzel',serif;
+}
+.popup p{
+  color:#e6d8a8;
+  margin-bottom:20px;
+}
+.confirm{
+  background:#e6d8a8;
+  color:#120b1f;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+}
+.cancel{
+  background:#444;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back</a>
+
+<header>
+  <h1>RAGHAD FAHMI FAVORITE FAN</h1>
+  <p>Vote / تصويت للمعجب المفضل</p>
+</header>
+
+<div class="container">
+  <div class="nominee"><img src=""><div class="info"><h2>Maram</h2><button onclick="openVote('Maram',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Ali</h2><button onclick="openVote('Ali',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Araz</h2><button onclick="openVote('Araz',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Aya</h2><button onclick="openVote('Aya',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Aziz</h2><button onclick="openVote('Aziz',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Hano</h2><button onclick="openVote('Hano',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Fares</h2><button onclick="openVote('Fares',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Sara</h2><button onclick="openVote('Sara',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Gala</h2><button onclick="openVote('Gala',this)">Vote</button></div></div>
+  <div class="nominee"><img src=""><div class="info"><h2>Raphy</h2><button onclick="openVote('Raphy',this)">Vote</button></div></div>
+</div>
+
+<footer onclick="admin()">© 2026 Golden Fan Awards</footer>
+
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <img id="pImg" class="popup-img">
+    <h3 id="pName"></h3>
+    <p>هل أنت جاهز للتصويت؟</p>
+    <button class="confirm" onclick="confirmVote()">Vote</button>
+    <button class="cancel" onclick="closePopup()">Cancel</button>
+  </div>
+</div>
+
+<script>
+const nominees=['Ali','Maram','Aya','Araz','Aya','Hano','Sara','Fares','Raphy','Gala'];
+let currentName='';
+
+function openVote(name,btn){
+  if(localStorage.getItem('voted_noor')){
+    alert('لقد قمت بالتصويت مسبقاً');
+    return;
+  }
+  btn.closest('.nominee').classList.add('selected');
+  setTimeout(()=>btn.closest('.nominee').classList.remove('selected'),700);
+  currentName=name;
+  document.getElementById('pName').innerText=name;
+  document.getElementById('pImg').src=btn.closest('.nominee').querySelector('img').src;
+  document.getElementById('popup').style.display='flex';
+}
+
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
+
+function confirmVote(){
+  let key='noor_'+currentName;
+  let count=parseInt(localStorage.getItem(key)||'0');
+  localStorage.setItem(key,count+1);
+  localStorage.setItem('voted_noor','yes');
+  alert('شكراً لتصويتك 💛');
+  closePopup();
+}
+
+function admin(){
+  let p=prompt('كلمة السر');
+  if(p!=='2009') return;
+  let r='';
+  nominees.forEach(n=>{
+    let c=localStorage.getItem('noor_'+n)||0;
+    r+=`${n} : ${c}\n`;
+  });
+  alert(r);
+}
+</script>
+
+</body>
+</html>
